@@ -1,24 +1,77 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | --------------------------|
+| nickname           | string | null: false               |
+| profile            | text   |                           |
+| email              | string | null: false ,unique: true |
+| encrypted_password | string | null: false               |
+| twitter_url        | string |                           |
+| pixiv_url          | string |                           |
+| another_url        | string |                           |
+  
+### Association
 
-* Ruby version
+- has_many :posts
+- has_many :comments
+- has_many :likes
+- has_many :tranings
 
-* System dependencies
+## posts テーブル
 
-* Configuration
+| Column               | Type       | Options                        |
+| ---------------------| ---------- | -------------------------------|
+| title                | string     | null: false                    |
+| description          | text       |                                |
+| advice_flag          | boolean    | null: false                    |
+| traning_flag         | boolean    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
 
-* Database initialization
+- has_many    :likes
+- has_many    :comments
+- has_many    :tranings
+- belongs_to  :user
 
-* How to run the test suite
+## comments テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column       | Type       | Options                        |
+| -------------| ---------- | ------------------------------ |
+| text         | text       | null: false                    |
+| good_point   | text       | null: false                    |
+| advice       | text       |                                |
+| user         | references | null: false, foreign_key: true |
+| post         | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to  :user
+- belongs_to  :post
+
+## likes テーブル
+
+| Column                | Type       | Options                        |
+| ----------------------| ---------- | -------------------------------|
+| user                  | references | null: false, foreign_key: true |
+| post                  | references | null: false, foreign_key: true | 
+
+### Association
+
+- belongs_to  :user
+- belongs_to  :post
+
+## tranings テーブル
+
+| Column       | Type       | Options                        |
+| -------------| ---------- | ------------------------------ |
+| theme_text   | text       | null: false                    |
+| user         | references | foreign_key: true              |
+| post         | references | foreign_key: true              |
+
+### Association
+
+- belongs_to  :user
+- belongs_to  :post
