@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+*,*::before,*::after {
+    box-sizing: border-box; 
+}
+
+/* 共通部分 */
+html{
+  font-size: 100%;
+}
+
+body{
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+  line-height: 1.7;
+  color:#333;    
+}
+
+a{
+    color:#333;
+    text-decoration: none; /* リンクの下線削除 */
+  }
+
+/* 親要素より画像が大きくならないようにする。 */
+img {
+  max-width: 100%;
+}
+
+.wrapper{
+  max-width: 1100px;
+  /* ボックスの中央寄せ */
+  margin: 0 auto;
+  /* スマホ向け余白 */
+  padding: 0 3%; 
+  border: 1px solid red;
+
+}
+/* -------------------------------------------- */
+
+/* 確認用 */
+p{
+  border: 1px solid #333;
+}
+
+h1{
+  border: 1px solid orange;
+}
+
+h2{
+  border: 1px solid blue;
+}
+
+a{
+  border: 1px solid green;
+}
+
+/* インデックスページ */
+#index{
+  background-image: url("/images/main-bg.jpg");
+  min-height: 100vh;
+}
+
+.bg{
+  background-size: cover;
+  background-position: top center;
+}
+
+header .wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+/* ヘッダータイトル */
+.header_title{
+  margin-top: 10px;
+  width: 250px;
+}
+
+/* ヘッダーメニュー */
+.menu_list{
+  display: flex;
+  justify-content: space-between;
+  border: orange 2px solid;
+}
+
+.menu_list li{
+  margin-right: 15px;
+  list-style: none;
+  font-size: 1.125rem;
+}
+
+.main_content{
+  padding:10% 3%;
+  text-align: center;
+}
+
+.main_title{
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-family: 'Philosopher', serif;
+}
+
+.main_content p{
+  margin-bottom: 50px;
+}
+
+.main_content a{
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  background-color: royalblue;
+  color:white;
+  border-radius: 5px;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* NEWS */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+#news{
+  background-image: url("/images/news-bg.jpg");
+  height:270px;
+}
+
+#news .main_title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ２カラム部分 */
+
+.news_contents{
+  display: flex;
+  justify-content: space-between;
+  padding:10px 0;
+}
+.news_left{
+width: 72%;
+border:red 1px solid;
+}
+.news_right{
+width: 22%;
+border: blue 1px solid;
+
+}
+
+.news_left h3{
+  font-family: 'Philosopher', serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align:  center;
+  color:#555
+}
+
+.news_left img{
+  margin-bottom: 30px;
+}
+.news_left p{
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.news_right h3{
+  margin-top: 20px;
+  font-family: 'Philosopher', serif;
+  border-bottom: 1px solid cornflowerblue;
+  margin-bottom: 20px;
+}
+
+.news_right li{
+  list-style: none;
+}
+
+.news_right li a{
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  border-bottom: #888 1px solid;
+  padding: 5px 0;
+}
+
+
+
+footer{
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding:10px 0
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* MENU */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+#menu{
+  background-image: url("/images/bg.jpg");
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten; 
+  min-height: 30vh;
+  margin-bottom: 80px;
+}
+
+.menu_content{
+  padding:3% 0 ;
+  text-align: center;
+}
+
+.item{
+}
+
+/* グリッド部分 */
+.grid{
+  display: grid;
+  /* 画面の表示幅による自動配列 */
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+  gap:15px;
+  padding: 10px;
+  margin-bottom: 30px;
+  /* grid-auto-rows: 500px;  */
+}
+
+
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* レスポンシブ対応 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+@media (max-width: 600px)  {
+
+  header .wrapper{
+    flex-direction: column;
+  }
+
+  .header_title{
+    margin-bottom: 30px;
+  }
+
+  .main_title{
+    font-size: 2rem;
+  }
+
+  /* NEWS */
+  .news_contents{
+    flex-direction: column;    
+  }
+  .news_left{
+    width: 100%;
+  }
+  
+  .news_right{
+    width: 100%;
+  }
+
+  #news .wrapper{
+    margin-bottom: 0px;
+  }
+
+  #news .header_title{
+    margin-bottom: 10px;
+  }
+ 
+  /* メニュー */
+  /* いじるとこなしオートグリッドが有能 */
+
+}
+
+
+
+
+
