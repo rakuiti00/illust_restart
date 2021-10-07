@@ -221,9 +221,9 @@ footer{
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 新規登録画面 */
+/* 新規登録画面・ログイン画面 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-#sign_up{
+#sign_up,#sign_in{
   background-image: url("/images/bg3.jpg");
   background-size: cover;
 
