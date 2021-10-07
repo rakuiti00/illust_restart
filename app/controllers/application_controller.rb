@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:profile,:twitter_url,:pixiv_url,:another_url])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:profile,:twitter_url,:pixiv_url,:another_url,:image])
   end
 
 end

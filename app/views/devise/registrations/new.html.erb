@@ -48,6 +48,10 @@
       <%= f.text_field :another_url, id:"another_url" %>
     </div>
 
+      <div class="field">
+        <%= f.label :imaga, "アバター画像(任意)" %><br />
+        <%= f.file_field :image, id:"user_image" %>
+      </div>
 
     <div class="actions">
       <%= f.submit "Sign up" %>
