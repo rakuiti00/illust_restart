@@ -2,16 +2,23 @@
     <header>
       <div class="wrapper">
         <!-- ヘッダータイトル -->
-        <h1 class="header_title"><a href="index"><img src="#" alt="">HOME</a></h1>
+        <h2 class="header_title">
+           <%= link_to "HOME", root_path%>
+        </h2>
+
+          <% if user_signed_in? %>
+             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>
+             <%= link_to "マイページ","#" %>
+
+          <% end %>
 
           <!-- ヘッダーメニュー -->
           <nav>
             <ul class="menu_list">
-              <li><a href="#">ログイン</a></li>
-              <li><a href="#">ログアウト</a></li>
-              <%#<li><a href="#">新規登録</a></li>%>
+              <%= link_to "ログイン", new_user_session_path%>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
               <%= link_to "新規登録", new_user_registration_path%>
-              <li><a href="#">新規投稿</a></li>
+              <%= link_to "新規投稿", "#"%>
             </ul>
           </nav>
       </div>    
