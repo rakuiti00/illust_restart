@@ -34,6 +34,12 @@ img {
   border: 1px solid red;
 
 }
+
+
+h2{
+  text-align: center;
+}
+
 /* -------------------------------------------- */
 
 /* 確認用 */
@@ -80,6 +86,8 @@ header .wrapper{
 .header_title{
   margin-top: 10px;
   width: 250px;
+  font-size: 0.7rem;
+  text-align: center;
 }
 
 /* ヘッダーメニュー */
@@ -137,13 +145,14 @@ header .wrapper{
   display: flex;
   justify-content: space-between;
   padding:10px 0;
+  margin-bottom: 50px;
 }
 .news_left{
-width: 72%;
+width: 48%;
 border:red 1px solid;
 }
 .news_right{
-width: 22%;
+width: 48%;
 border: blue 1px solid;
 
 }
@@ -233,6 +242,12 @@ footer{
 }
 
 
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 微調整 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.field{
+  margin-bottom: 15px;
+}
 
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
