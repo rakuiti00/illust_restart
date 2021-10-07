@@ -53,6 +53,10 @@ a{
   border: 1px solid green;
 }
 
+input{
+  border: 1px solid peru;
+}
+
 /* インデックスページ */
 #index{
   background-image: url("/images/main-bg.jpg");
@@ -69,6 +73,7 @@ header .wrapper{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+  font-size: 18px;
 }
 
 /* ヘッダータイトル */
@@ -191,7 +196,7 @@ footer{
 /* MENU */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #menu{
-  background-image: url("/images/bg.jpg");
+  background-image: url("/images/bg3.jpg");
   background-color:rgba(255,255,255,0.6);
   background-blend-mode:lighten; 
   min-height: 30vh;
@@ -199,12 +204,10 @@ footer{
 }
 
 .menu_content{
-  padding:3% 0 ;
+  padding:4% 0 ;
   text-align: center;
 }
 
-.item{
-}
 
 /* グリッド部分 */
 .grid{
@@ -216,6 +219,19 @@ footer{
   margin-bottom: 30px;
   /* grid-auto-rows: 500px;  */
 }
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 新規登録画面 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+#sign_up{
+  background-image: url("/images/bg3.jpg");
+  background-size: cover;
+
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten; 
+  min-height: 100vh;
+}
+
 
 
 
