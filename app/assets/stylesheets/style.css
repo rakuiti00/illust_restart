@@ -99,8 +99,6 @@ header .wrapper{
   font-size: 3rem;
   margin-bottom: 10px;
   font-family: 'Philosopher', serif;
-
-
 }
 
 .main_content p{
@@ -193,25 +191,30 @@ footer{
 /* MENU */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #menu{
-  /* background-image: url("/images/neko3.jpg");  */
+  background-image: url("/images/bg.jpg");
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten; 
   min-height: 30vh;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .menu_content{
-  padding:5% 0 ;
+  padding:3% 0 ;
   text-align: center;
+}
+
+.item{
 }
 
 /* グリッド部分 */
 .grid{
   display: grid;
   /* 画面の表示幅による自動配列 */
-  /* ググって実装できたのは偉い */
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); 
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
   gap:15px;
   padding: 10px;
   margin-bottom: 30px;
+  /* grid-auto-rows: 500px;  */
 }
 
 
