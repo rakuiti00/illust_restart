@@ -217,17 +217,26 @@ footer{
   text-align: center;
 }
 
+.items{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;  
+}
+/* .item{
+  width: 23%;
+  
+} */
+
+.item img{
+  padding: 3%;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
 
 /* グリッド部分 */
-.grid{
-  display: grid;
-  /* 画面の表示幅による自動配列 */
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
-  gap:15px;
-  padding: 10px;
-  margin-bottom: 30px;
-  /* grid-auto-rows: 500px;  */
-}
+
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 新規登録画面・ログイン画面 */
