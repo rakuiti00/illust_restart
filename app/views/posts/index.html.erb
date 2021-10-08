@@ -1,28 +1,4 @@
 <div id="menu" class="bg">
-    <header>
-      <div class="wrapper">
-        <!-- ヘッダータイトル -->
-        <div class="header_title">
-           <h1><%= link_to "ホーム", root_path%></h1>
-        </div>
-
-          <% if user_signed_in? %>
-             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>              
-             <%= link_to "マイページ","#" %>
-          <% end %>
-
-          <!-- ヘッダーメニュー -->
-          <nav>
-            <ul class="menu_list">
-              <li><%= link_to "ログイン", new_user_session_path%></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
-              <li><%= link_to "新規登録", new_user_registration_path%></li>
-              <li><%= link_to "イラスト投稿", new_post_path%></li>
-            </ul>
-          </nav>
-      </div>    
-   </header>
-
    <div class="wrapper menu_content">
       <h2 class="main_title">仮トップページ</h2>
       <p>
@@ -35,6 +11,7 @@
       </p>
 
    </div>
+
 </div>
 
 <!-- グリッド部分 -->
@@ -128,7 +105,3 @@
 
 
 </div>
-
-<footer>
-  <p>copyright~~</p>
-</footer>
