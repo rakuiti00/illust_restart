@@ -208,12 +208,14 @@ footer{
   background-image: url("/images/bg3.jpg");
   background-color:rgba(255,255,255,0.6);
   background-blend-mode:lighten; 
-  min-height: 30vh;
+  min-height: 50vh;
   margin-bottom: 30px;
+  background-position: top 10% center;
+  background-size: cover;
 }
 
 .menu_content{
-  padding:4% 0 ;
+  padding:7% 0 ;
   text-align: center;
 }
 

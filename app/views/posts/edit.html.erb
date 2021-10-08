@@ -1,6 +1,6 @@
 
 <div>
-  <h2 class="wrapper">新規投稿画面</h2>
+  <h2 class="wrapper">投稿内容編集画面</h2>
 </div>
 
 <!-- 2カラム部分 -->
@@ -8,8 +8,7 @@
 
   <div class="news_left">
     <div>
-      <!-- 仮イメージ 本来はプレビューを表示しないといけない -->
-      <a href="#"><img src="/images/bg3.jpg" alt=""></a>
+      <%= image_tag @post.image %>
     </div>
   </div>
 
@@ -48,12 +47,9 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "投稿する", class: :form__btn  %>
+        <%= f.submit "編集する", class: :form__btn  %>
       </div>
    <% end %>
-
-
-    
 
   </div>
 
