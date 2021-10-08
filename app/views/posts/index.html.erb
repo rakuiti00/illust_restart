@@ -42,16 +42,16 @@
 
   <div class="items">
     <% @posts.each do |post| %> 
-              <%#= link_to item_path(item.id) do %>
-              <div class='item'>
-                <%= image_tag post.image %><br>
-                <%= post.title %><br>
-                <%= post.user.nickname %><br>
-                <% if post.advice_flag %> 
-                  <span>アドバイス・指摘等お願いします</span>
-                <% end  %>
-              </div>
-              <%# end  %>       
+          <%= link_to post_path(post.id) do %>
+          <div class='item'>
+            <%= image_tag post.image %><br>
+            <%= post.title %><br>
+            <%= post.user.nickname %><br>
+            <% if post.advice_flag %> 
+              <span>アドバイス・指摘等お願いします</span>
+            <% end  %>
+          </div>
+          <% end  %>       
     <% end  %>
   </div>
 

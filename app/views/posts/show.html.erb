@@ -1,0 +1,95 @@
+<div class="bg">
+    <header>
+      <div class="wrapper">
+        <!-- ヘッダータイトル -->
+        <div class="header_title">
+           <h1><%= link_to "ホーム", root_path%></h1>
+        </div>
+
+          <% if user_signed_in? %>
+             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>
+             <%= link_to "マイページ","#" %>
+
+          <% end %>
+
+          <!-- ヘッダーメニュー -->
+          <nav>
+            <ul class="menu_list">
+              <%= link_to "ログイン", new_user_session_path%>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+              <%= link_to "新規登録", new_user_registration_path%>
+              <%= link_to "イラスト投稿", new_post_path%>
+            </ul>
+          </nav>
+      </div>    
+   </header>
+  </div>
+</div>
+
+<div>
+  <h2 class="wrapper"> 詳細表示画面</h2>
+</div>
+
+<!-- 2カラム部分 -->
+<div class="news_contents wrapper">
+
+  <div class="news_left">
+ 
+    <div class="show_image">
+      <%= image_tag @post.image %>
+    </div>
+  </div>
+  
+  <div class="news_right wrapper">
+
+       <div>
+          <span>ユーザー名</span>
+          <p  class="show__username">
+            <%= @post.user.nickname %>
+          </p>
+       </div>
+
+         <div>
+          <span>イラストタイトル</span>
+          <p class="show__title">
+            <%= @post.title %>
+          </p>
+        </div>
+
+        <div>
+          <span>イラストの内容・補足</span>
+          <p  class="show__description">
+            <%= @post.description %>
+          </p>
+       </div>
+
+        <div>
+          <span>アドバイスの有無</span>
+          <p  class="show__advice">
+            <% if @post.advice_flag %>
+              アドバイス・指摘等お願いします
+            <% else %>
+              アドバイス・指摘等は不要です
+            <% end %>
+          </p>
+       </div>
+
+      <%# if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="prototype__manage">
+          <%= link_to "編集する", "#"%>
+          <%= link_to "削除する", "#", method: :delete%>
+        </div>
+      <%# end %>
+
+
+
+
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>copyright~~</p>
+</footer>
