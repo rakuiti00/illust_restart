@@ -40,7 +40,27 @@
 <!-- グリッド部分 -->
 <div class="wrapper grid"> 
 
+  <div class="items">
+    <% @posts.each do |post| %> 
+              <%#= link_to item_path(item.id) do %>
+              <div class='item'>
+                <%= image_tag post.image %><br>
+                <%= post.title %><br>
+                <%= post.user.nickname %><br>
+                <% if post.advice_flag %> 
+                  <span>アドバイス・指摘等お願いします</span>
+                <% end  %>
+              </div>
+              <%# end  %>       
+    <% end  %>
+  </div>
+
+
+
+
+
   <!-- ダミー情報 -->
+   <!-- 
   <div class="item">
     <a href="#"><img src="/images/image1.jpg" alt=""></a>
     <p>説明説明説明説明説明説明</p>
@@ -104,6 +124,7 @@
     <a href="#"><img src="/images/menu9.jpg" alt=""></a>
     <p>説明説明説明説明説明説明</p>
   </div>
+  -->
 
 
 </div>
