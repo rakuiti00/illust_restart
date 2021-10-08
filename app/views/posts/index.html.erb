@@ -2,23 +2,22 @@
     <header>
       <div class="wrapper">
         <!-- ヘッダータイトル -->
-        <h2 class="header_title">
-           <%= link_to "HOME", root_path%>
-        </h2>
+        <div class="header_title">
+           <h1><%= link_to "ホーム", root_path%></h1>
+        </div>
 
           <% if user_signed_in? %>
-             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>
+             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>              
              <%= link_to "マイページ","#" %>
-
           <% end %>
 
           <!-- ヘッダーメニュー -->
           <nav>
             <ul class="menu_list">
-              <%= link_to "ログイン", new_user_session_path%>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
-              <%= link_to "新規登録", new_user_registration_path%>
-              <%= link_to "新規投稿", "#"%>
+              <li><%= link_to "ログイン", new_user_session_path%></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
+              <li><%= link_to "新規登録", new_user_registration_path%></li>
+              <li><%= link_to "イラスト投稿", new_post_path%></li>
             </ul>
           </nav>
       </div>    
@@ -41,6 +40,7 @@
 <!-- グリッド部分 -->
 <div class="wrapper grid"> 
 
+  <!-- ダミー情報 -->
   <div class="item">
     <a href="#"><img src="/images/image1.jpg" alt=""></a>
     <p>説明説明説明説明説明説明</p>

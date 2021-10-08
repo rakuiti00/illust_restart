@@ -1,0 +1,92 @@
+<div class="bg">
+    <header>
+      <div class="wrapper">
+        <!-- ヘッダータイトル -->
+        <div class="header_title">
+           <h1><%= link_to "ホーム", root_path%></h1>
+        </div>
+
+          <% if user_signed_in? %>
+             <%= link_to "こんにちは！ #{current_user.nickname}さん。","#" %>
+             <%= link_to "マイページ","#" %>
+
+          <% end %>
+
+          <!-- ヘッダーメニュー -->
+          <nav>
+            <ul class="menu_list">
+              <%= link_to "ログイン", new_user_session_path%>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+              <%= link_to "新規登録", new_user_registration_path%>
+              <%= link_to "イラスト投稿", new_post_path%>
+            </ul>
+          </nav>
+      </div>    
+   </header>
+  </div>
+</div>
+
+<div>
+  <h2 class="wrapper">新規投稿画面</h2>
+</div>
+
+<!-- 2カラム部分 -->
+<div class="news_contents wrapper">
+
+  <div class="news_left">
+    <div>
+      <!-- 仮イメージ 本来はプレビューを表示しないといけない -->
+      <a href="#"><img src="/images/bg3.jpg" alt=""></a>
+    </div>
+  </div>
+
+  <div class="news_right wrapper">
+
+   <%= form_with model: @post, local: true do |f|%>
+      <div class="field">
+        <%= f.label :title, "タイトル(必須)" %><br />
+        <%= f.text_field :title, id:"post_title" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, "イラストの説明・補足(任意)" %><br />
+        <%= f.text_area :description,  id:"post_description" %>
+      </div>
+
+      <div class="field">
+          <%= f.label :advice_flag, "コメントによるアドバイスの有無" %><br />
+          <%= f.radio_button :advice_flag, :true %>
+          <%= f.label :advice_flag, "アドバイス有り" %><br />
+          <%= f.radio_button :advice_flag, :false %>
+          <%= f.label :advice_flag, "アドバイス無し" %><br />
+      </div>
+
+      <div class="field">
+          <%= f.label :traning_flag, "イラスト練習お題に関する投稿" %><br />
+          <%= f.radio_button :traning_flag, :true %>
+          <%= f.label :traning_flag, "通常のイラスト" %><br />
+          <%= f.radio_button :traning_flag, :false %>
+          <%= f.label :traning_flag, "お題用イラスト" %><br />
+      </div>
+
+      <div class="field">
+        <%= f.label :imaga, "投稿するイラストの画像" %><br />
+        <%= f.file_field :image, id:"post_image" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "投稿する", class: :form__btn  %>
+      </div>
+   <% end %>
+
+
+    
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>copyright~~</p>
+</footer>
