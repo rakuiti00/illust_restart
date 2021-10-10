@@ -54,9 +54,13 @@
         </div>
       <%# end %>
 
-
-
-
+      <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+      <% if Like.find_by(user_id: current_user.id,post_id: @post.id)  %>
+        <%= link_to("いいね！削除",post_like_path(@post.id),{method: :delete})  %>      
+      <% else %>
+        <%# <p>いいね！していません</p> %>
+        <%= link_to("いいね！",post_likes_path(@post.id),{method: :post})  %>
+      <% end  %>
 
   </div>
 

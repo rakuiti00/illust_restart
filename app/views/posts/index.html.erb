@@ -27,6 +27,12 @@
             <% if post.advice_flag %> 
               <span>アドバイス・指摘等お願いします</span>
             <% end  %>
+            <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+              <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+                <p>いいね！済み</p>
+              <% else %>
+                <p>いいね！していません</p>
+              <% end  %>
           </div>
           <% end  %>       
     <% end  %>
