@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @like_count = Like.where(post_id: params[:id]).count
   end
 
   def edit
