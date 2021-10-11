@@ -273,6 +273,29 @@ footer{
   color:#8899a6;
   font-size: 1.5rem;
 }
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* マイページ
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.user_left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.user_right{
+  width: 70%;
+}
+
+.user_image{
+  width: 150px;
+}
+.user_image img{
+  
+  border-radius: 50%;
+  border: 1px solid #333
+}
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */
@@ -311,9 +334,6 @@ footer{
   #news .header_title{
     margin-bottom: 10px;
   }
- 
-  /* メニュー */
-  /* いじるとこなしオートグリッドが有能 */
 
 }
 
