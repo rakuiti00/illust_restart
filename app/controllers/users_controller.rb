@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     # テスト用 総いいね数が一定ライン(一旦100)を越えたら卒業ページに飛ばす
     # @likes_count =100
     # if @likes_count >=  100
-    #   render 卒業用ページ
+    #   render :lgtm
     # end
 
   end
