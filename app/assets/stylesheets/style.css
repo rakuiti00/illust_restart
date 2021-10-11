@@ -244,7 +244,7 @@ footer{
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 新規登録画面・ログイン画面 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-#sign_up,#sign_in{
+#sign_up,#sign_in,.clear{
   background-image: url("/images/bg3.jpg");
   background-size: cover;
 
@@ -272,6 +272,39 @@ footer{
 .like_btn_off{
   color:#8899a6;
   font-size: 1.5rem;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* マイページ
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.user_left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.user_right{
+  width: 70%;
+}
+
+.user_image{
+  width: 150px;
+}
+.user_image img{
+  
+  border-radius: 50%;
+  border: 1px solid #333
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* LGTM */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.clear{
+  font-size: 1.25rem;
+}
+
+.clear p{
+  border: none;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -311,9 +344,6 @@ footer{
   #news .header_title{
     margin-bottom: 10px;
   }
- 
-  /* メニュー */
-  /* いじるとこなしオートグリッドが有能 */
 
 }
 
