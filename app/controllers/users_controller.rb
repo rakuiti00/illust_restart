@@ -13,8 +13,8 @@ class UsersController < ApplicationController
       @likes_count += post.likes.count
     end
 
-    # テスト用 総いいね数が一定ライン(一旦100)を越えたら卒業ページに飛ばす
-    # @likes_count =100
+    # (テスト用) 総いいね数が一定ライン(一旦100)を越えたら卒業ページに飛ばす
+    # @likes_count = 100
     # if @likes_count >=  100
     #   render :lgtm
     # end
