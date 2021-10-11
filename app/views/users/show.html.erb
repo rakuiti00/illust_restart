@@ -8,83 +8,38 @@
 
   <div class="news_left user_left">
     <div class="user_image">
-      <a href="#"><img src="/images/bg3.jpg" alt=""></a>
+      <img src="/images/bg3.jpg" alt="">
     </div>
   </div>
   <div class="news_right wrapper user_right">
-      <p>仮 ユーザー名</p>
-      <p>投稿件数</p>
-      <p>twitterURL</p>
-      <p>PixivURL</p>
-      <p>anotherURL</p>
+      <p><%= "ユーザー名 : #{@user.nickname}" %></p>
+      <p><%= "投稿数 : #{@posts.count}" %></p>
+      <p><%= "TwitterURL : #{@user.twitter_url}"%></p>
+      <p><%= "PixivURL : #{@user.pixiv_url}" %></p>
+      <p><%= "その他連絡先 : #{@user.another_url}" %></p>
+      <p><%= "総いいね数 : #{@likes_count}/100で卒業!" %></p>
   </div>
-
 </div>
 
 <div class="wrapper grid"> 
  <div class="items">
-  <div class="item">
-    <a href="#"><img src="/images/image1.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
+    <% @posts.each do |post| %> 
+          <%= link_to post_path(post.id) do %>
+          <div class='item'>
+            <%= image_tag post.image %><br>
+            <%= post.title %><br>
+            <%= post.user.nickname %><br>
+            <% if post.advice_flag %> 
+              <span>アドバイス・指摘等お願いします</span><br>
+            <% end  %>
+           <% end %>
+          
 
-  <div class="item">
-    <a href="#"><img src="/images/neko3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
+            <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+                  <span class="fa fa-heart like_btn_on"></span> 
+                  <%= Like.where(post_id: post.id).count %> 
+        </div>
+    <% end  %>
 
-  <div class="item">
-    <a href="#"><img src="/images/menu3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image4.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu5.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image6.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-  <div class="item">
-    <a href="#"><img src="/images/image7.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/neko2.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/neko1.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu9.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image2.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu9.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
  </div>
 </div>
