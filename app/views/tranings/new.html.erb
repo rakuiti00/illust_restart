@@ -1,0 +1,22 @@
+<div>
+  <h2 class="wrapper">お題追加画面</h2>
+</div>
+
+<div class="wrapper ">
+
+<%= form_with model: @traning, local: true do |f|%>
+      <div class="field">
+        <%= f.label :theme_text, "イラストのお題追加内容(必須)" %><br />
+        <%= f.text_field :theme_text, id:"theme_text" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :image, "お題の参考イラスト(任意)" %><br />
+        <%= f.file_field :image, id:"theme_image" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "投稿する", class: :form__btn  %>
+      </div>
+   <% end %>
+</div>
