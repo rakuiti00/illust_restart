@@ -67,9 +67,46 @@
         <% end %>
 
       <% end  %>
-
   </div>
+ </div>
 
+ <div class="wrapper comments">
+    <%= form_with model:[@post,@comment],local: true do |f|%>
+      <div class="field">
+            <%= f.label :good_point, "良い点(必須)" %><br />
+            <%= f.text_area :good_point, id:"good_point" %>
+      </div>
+      <div class="field">
+            <%= f.label :text, "コメント(必須)" %><br />
+            <%= f.text_area :text, id:"comment_text" %>
+      </div>
+
+      <% if @post.advice_flag %>
+         <div class="field">
+            <%= f.label :advice, "気になる点やアドバイス(任意)" %><br />
+            <%= f.text_area :advice, id:"advice" %>
+          </div>
+      <% end %>
+      <div class="actions">
+            <%= f.submit "送信する", class: :form__btn  %>
+      </div>
+    <% end %> 
+
+    <p>コメント一覧の表示</p>
+    <div class="wrapper">
+      <ul class="comments_lists">
+        <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+        <% @comments.each do |comment| %>
+          <li class="comments_list">
+            <%= "良い点：#{comment.good_point}"%><br>
+            <%= "コメント：#{comment.text}"%><br>
+            <%= "アドバイス：#{comment.advice}"%><br>
+            <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %> 
+          </li>
+        <% end  %>
+        <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+      </ul>
+    </div>
 </div>
 
 
