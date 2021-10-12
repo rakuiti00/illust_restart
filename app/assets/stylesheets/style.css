@@ -31,7 +31,7 @@ img {
   margin: 0 auto;
   /* スマホ向け余白 */
   padding: 0 3%; 
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
 }
 
@@ -43,7 +43,7 @@ h2{
 /* -------------------------------------------- */
 
 /* 確認用 */
-p{
+/* p{
   border: 1px solid #333;
 }
 
@@ -61,7 +61,7 @@ a{
 
 input{
   border: 1px solid peru;
-}
+} */
 
 /* インデックスページ */
 #index{
@@ -94,7 +94,7 @@ header .wrapper{
 .menu_list{
   display: flex;
   justify-content: space-between;
-  border: orange 2px solid;
+  /* border: orange 2px solid; */
 }
 
 .menu_list li{
@@ -149,50 +149,13 @@ header .wrapper{
 }
 .news_left{
 width: 48%;
-border:red 1px solid;
+/* border:red 1px solid; */
 }
 .news_right{
 width: 48%;
-border: blue 1px solid;
+/* border: blue 1px solid; */
 
 }
-
-.news_left h3{
-  font-family: 'Philosopher', serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-align:  center;
-  color:#555
-}
-
-.news_left img{
-  margin-bottom: 30px;
-}
-.news_left p{
-  margin-bottom: 10px;
-  line-height: 1.7;
-}
-
-.news_right h3{
-  margin-top: 20px;
-  font-family: 'Philosopher', serif;
-  border-bottom: 1px solid cornflowerblue;
-  margin-bottom: 20px;
-}
-
-.news_right li{
-  list-style: none;
-}
-
-.news_right li a{
-  display: block;
-  width: 100%;
-  font-size: 1.125rem;
-  border-bottom: #888 1px solid;
-  padding: 5px 0;
-}
-
-
 
 footer{
   background-color: #333;
@@ -320,6 +283,14 @@ input[type="text"],input[type="email"]{
 textarea{
   width: 50%;
 }
+
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* BootStrap再調整 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.form-control{
+  border: 1px solid deepskyblue;
+} 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
