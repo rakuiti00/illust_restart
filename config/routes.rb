@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #lgtm to: 'users#lgtm'
   resources :posts do
     resources :likes, only: [:create,:destroy]
+    resources :comments, only: [:create,:destroy]
   end
 
   resources :users, only: [:show]

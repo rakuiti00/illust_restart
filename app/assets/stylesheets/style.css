@@ -145,7 +145,7 @@ header .wrapper{
   display: flex;
   justify-content: space-between;
   padding:10px 0;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .news_left{
 width: 48%;
@@ -307,6 +307,19 @@ footer{
   border: none;
 }
 
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* フォーム入力欄 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* #comment_text{
+  width: 80%;
+} */
+input[type="text"],input[type="email"]{
+  width: 50%;
+}
+
+textarea{
+  width: 50%;
+}
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
