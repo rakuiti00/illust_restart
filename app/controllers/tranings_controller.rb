@@ -2,7 +2,7 @@ class TraningsController < ApplicationController
   def index
     random_id = rand(Traning.count)+1
     @traning = Traning.find(random_id)
-    @posts = Post.where(traning_flag: true)
+    @posts = Post.where(traning_flag: true).where(traning_id: @traning.id)
 
   end
 

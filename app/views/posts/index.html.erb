@@ -23,8 +23,8 @@
 
   <div class="items">
     <% @posts.each do |post| %> 
-          <%= link_to post_path(post.id) do %>
           <div class='item'>
+            <%= link_to post_path(post.id) do %>
             <%= image_tag post.image %><br>
             <%= post.title %><br>
             <%= post.user.nickname %><br>
