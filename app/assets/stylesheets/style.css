@@ -32,7 +32,6 @@ img {
   /* スマホ向け余白 */
   padding: 0 3%; 
   /* border: 1px solid red; */
-
 }
 
 
@@ -302,6 +301,16 @@ textarea{
 .form-control{
   border: 1px solid deepskyblue;
 } 
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 画像プレビュー */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.news_left{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
