@@ -6,6 +6,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+
+    if params[:traning_id]
+      @traning_id = params[:traning_id]  
+    else
+      @traning_id = 1
+    end
+
   end
 
   def create
@@ -48,7 +55,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :description,:advice_flag,:traning_flag,:image).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :description,:advice_flag,:traning_flag,:image,:traning_id).merge(user_id: current_user.id)
   end
 
 end

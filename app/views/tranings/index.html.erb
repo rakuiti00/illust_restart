@@ -3,6 +3,8 @@
 </div>
 <div class="wrapper traning_text ">
   <h2><%= @traning.theme_text %></h2>
+  <h2><%= "確認用 お題ID：#{@traning.id}" %></h2>
+
 <div class="wrapper traning_image ">
   <%# ActiveStrageテーブルに画像が存在しない場合は表示しない %>
   <% if !(ActiveStorage::Attachment.exists?(record_id: @traning.id,record_type: "Traning"))%>
@@ -18,14 +20,17 @@
   <%= link_to "お題追加ボタン（仮）",new_traning_path %>
 </div>
 
+<div>
+  <%= link_to "お題で絵を投稿する",new_post_path(traning_id: @traning.id) %>
+</div>
 
 <!-- グリッド部分 -->
 <div class="wrapper grid"> 
 
   <div class="items">
     <% @posts.each do |post| %> 
-          <%= link_to post_path(post.id) do %>
           <div class='item'>
+            <%= link_to post_path(post.id) do %>
             <%= image_tag post.image %><br>
             <%= post.title %><br>
             <%= post.user.nickname %><br>
