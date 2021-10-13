@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_092853) do
+ActiveRecord::Schema.define(version: 2021_10_13_133637) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_092853) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "posts", "tranings"
   add_foreign_key "posts", "users"
   add_foreign_key "tranings", "posts"
   add_foreign_key "tranings", "users"
