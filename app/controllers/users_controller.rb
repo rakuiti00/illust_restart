@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     # @likes_count = 100
     # if @likes_count >=  100
     #   render :lgtm
-    # end
+    #  end
 
   end
 
