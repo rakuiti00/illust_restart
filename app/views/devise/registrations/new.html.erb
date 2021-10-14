@@ -5,7 +5,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :nickname, "ユーザー名(必須)" %><br />
+      <%= f.label :nickname, "ユーザー名" %><span class="badge bg-primary parmit">必須</span><br />
       <%= f.text_field :nickname, id:"user_name",class:"form-control"  %>
     </div>
 

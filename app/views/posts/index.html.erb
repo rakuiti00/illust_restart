@@ -1,126 +1,81 @@
-<div id="menu" class="bg">
-   <div class="wrapper menu_content">
-      <h2 class="main_title">仮トップページ</h2>
-      <p>
-        説明説明説明説明説明説明説明説明説明説明説明
-        説明説明説明説明説明説明説明説明説明説明説明
-        説明説明説明説明説明説明説明説明説明説明説明
-        説明説明説明説明説明説明説明説明説明説明説明
-        説明説明説明説明説明説明説明説明説明説明説明
-        説明説明説明説明説明説明説明説明説明説明説明
-      </p>
+  <%# CSSアニメーション実験 %>
+  <ul class="sakura">
+    <h1>Sakura<h1>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 
-    <div>
-      <%= link_to "練習用お題ページへのリンク",tranings_path %>
-    </div>
+<div id="menu">
+   <div class="wrapper menu_content">
+      <h2 class="main_title">Re: illustart</h2>
+      <div class="main_description" >
+
+        <p>
+        このサイトはイラストを描いていてまだ１円も稼げていない人、結果を出せない人、<br>
+        昔絵を描いていたけど描くのをやめてもう一度イラストを描こうと思った人が、<br>
+        </p>
+        
+        <p>
+        ココナラやSkebといったイラスト有料依頼サイトに登録するまでの練習や<br>
+        自信・実績を得ることを目的としたイラスト練習・コミュニティサイトです。<br>
+        </p>
+
+        <p>
+        そのため、すでにめちゃくちゃ絵が上手い人・絵で稼いでいる人は対象ではありません。<br>
+        総いいね数が一定数貯まると、自動的にこのサイトからは卒業する仕組みになっています。<br>
+        神絵師は即卒業することになるので、登録してもあまり意味がないと思います。
+        </p>
+
+        
+
+      </div>  
+      
+      <div>
+        <%= link_to "ランダムお題練習ページ",tranings_path , class:"btn btn-link traning_btn" %>
+      </div>
    </div>
 
-</div>
-
-<h2>投稿イラスト一覧の表示（新着順）</h2>
-<!-- グリッド部分 -->
-<div class="wrapper grid"> 
-
-  <div class="items">
-    <% @posts.each do |post| %> 
-          <div class='item'>
-            <%= link_to post_path(post.id) do %>
-            <%= image_tag post.image %><br>
-            <%= post.title %><br>
-            <%= post.user.nickname %><br>
-            <% if post.advice_flag %> 
-              <span>アドバイス・指摘等お願いします</span><br>
-            <% end  %>
-          <% end %>
-          
-            <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
-            <% if user_signed_in? %>
-              <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
-                  <span class="fa fa-heart like_btn_on"></span>
-                  <%= Like.where(post_id: post.id).count %> 
-              <% else %>
-                <span class="fa fa-heart like_btn_off"></span> 
-                 <%= Like.where(post_id: post.id).count %> 
+  <h2>投稿イラストの一覧(新着順)</h2>
+  <!-- グリッド部分 -->
+  <div class="wrapper grid"> 
+    <div class="items">
+      <% @posts.each do |post| %> 
+            <div class='item'>
+              <%= link_to post_path(post.id) do %>
+                <%= image_tag post.image %><br>
+                <%= post.title %><br>
               <% end %>
-             <%# ログインしていない場合はいいねの総数のみを表示  %>
-            <% else  %>
-                  <span class="fa fa-heart like_btn_on"></span> 
+              <%= link_to post.user.nickname , user_path(post.user.id) %><br>
+              <% if post.advice_flag %> 
+                <span>アドバイス・指摘等お願いします</span><br>
+              <% end  %>
+              <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+              <% if user_signed_in? %>
+                <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+                    <span class="fa fa-heart like_btn_on"></span>
+                    <%= Like.where(post_id: post.id).count %> 
+                <% else %>
+                  <span class="fa fa-heart like_btn_off"></span> 
                   <%= Like.where(post_id: post.id).count %> 
-            <% end %>
-          </div>
-    <% end  %>
+                <% end %>
+              <%# ログインしていない場合はいいねの総数のみを表示  %>
+              <% else  %>
+                    <span class="fa fa-heart like_btn_on"></span> 
+                    <%= Like.where(post_id: post.id).count %> 
+              <% end %>
+            </div>
+       <% end  %>
+    </div>
   </div>
-
-
-
-
-
-  <!-- ダミー情報 -->
-   <!-- 
-  <div class="item">
-    <a href="#"><img src="/images/image1.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/neko3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image4.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu5.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image6.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-  <div class="item">
-    <a href="#"><img src="/images/image7.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/neko2.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/neko1.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image3.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu9.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/image2.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-
-  <div class="item">
-    <a href="#"><img src="/images/menu9.jpg" alt=""></a>
-    <p>説明説明説明説明説明説明</p>
-  </div>
-  -->
-
-
 </div>

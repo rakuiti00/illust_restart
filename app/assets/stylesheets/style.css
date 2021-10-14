@@ -26,7 +26,7 @@ img {
 }
 
 .wrapper{
-  max-width: 1100px;
+  max-width: 1200px;
   /* ボックスの中央寄せ */
   margin: 0 auto;
   /* スマホ向け余白 */
@@ -38,6 +38,14 @@ img {
 h2{
   text-align: center;
 }
+
+footer{
+  color: #333;
+  text-align: center;
+  padding:5px 0
+}
+
+
 
 /* -------------------------------------------- */
 
@@ -62,22 +70,25 @@ input{
   border: 1px solid peru;
 } */
 
-/* インデックスページ */
-#index{
+/*************************************************************************************************/
+/*インデックスページ 
+/*************************************************************************************************/
+
+/* #index{
   background-image: url("/images/main-bg.jpg");
   min-height: 100vh;
-}
+} */
 
-.bg{
+/* .bg{
   background-size: cover;
   background-position: top center;
-}
+} */
 
 header .wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-size: 18px;
 }
 
@@ -85,15 +96,19 @@ header .wrapper{
 .header_title{
   margin-top: 10px;
   width: 250px;
-  font-size: 0.7rem;
   text-align: center;
+  font-family: 'Philosopher', serif;
+}
+.header_title h1{
+  font-size: 1.5rem;
 }
 
 /* ヘッダーメニュー */
 .menu_list{
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  /* border: orange 2px solid; */
+   /* border: orange 2px solid;  */
 }
 
 .menu_list li{
@@ -102,44 +117,59 @@ header .wrapper{
   font-size: 1.125rem;
 }
 
-.main_content{
-  padding:10% 3%;
-  text-align: center;
-}
-
 .main_title{
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-family: 'Philosopher', serif;
 }
 
-.main_content p{
+/* .main_content p{
+  margin-bottom: 50px;
+} */
+
+.main_description{
+  font-size: 1.1rem;
+  text-align: left;
+  padding-left: 5px;
   margin-bottom: 50px;
 }
 
-.main_content a{
+.main_description p{
+  margin-bottom: 25px;
+}
+.menu_content{
+  margin-bottom: 50px;
+}
+
+
+/* 練習用ページへのリンクボタン */
+/* .traning_link{
   font-size: 1.2rem;
   padding: 15px 30px;
-  background-color: royalblue;
-  color:white;
+  background-color:#2C7CFF;
+  color: #fff;
   border-radius: 5px;
-}
+} */
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* NEWS */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-#news{
+
+/* #news{
   background-image: url("/images/news-bg.jpg");
   height:270px;
-}
-
+} */
+/* 
 #news .main_title{
   text-align: center;
   margin-bottom: 30px;
-}
+} */
 
 /* ２カラム部分 */
 
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 投稿画面(2カラム画面は流用する)*/
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .news_contents{
   display: flex;
   justify-content: space-between;
@@ -153,15 +183,12 @@ width: 48%;
 .news_right{
 width: 48%;
 /* border: blue 1px solid; */
-
+}
+.check_point{
+  color:#FF0066;
 }
 
-footer{
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding:10px 0
-}
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* MENU */
@@ -172,12 +199,11 @@ footer{
   background-blend-mode:lighten; 
   min-height: 50vh;
   margin-bottom: 30px;
-  background-position: top 10% center;
   background-size: cover;
 }
 
 .menu_content{
-  padding:7% 0 ;
+  padding:3% 0 ;
   text-align: center;
 }
 
@@ -250,12 +276,14 @@ footer{
 }
 
 .user_image{
-  width: 150px;
-}
-.user_image img{
   
+}
+.user_image{
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 1px solid #333
+  border: 1px solid #ccc;
+  object-fit: cover;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -279,8 +307,21 @@ input[type="text"],input[type="email"]{
   width: 50%;
 }
 
+input[type="password"]{
+  width: 30%;
+}
+
 textarea{
-  width: 50%;
+  width: 80%;
+}
+
+.radio_area{
+  margin-left: 20px;
+}
+
+.parmit{
+  color:#eee;
+  margin-left: 5px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -301,6 +342,11 @@ textarea{
 .form-control{
   border: 1px solid deepskyblue;
 } 
+
+.traning_btn{
+  font-size: 30px;
+  width: 400px;
+}
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 画像プレビュー */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
