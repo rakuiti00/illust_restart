@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:destroy]
+  before_action :move_to_index, only:[:edit]
 
   def index
     @posts = Post.includes(:user).order("updated_at DESC")
@@ -57,6 +58,14 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :description,:advice_flag,:traning_flag,:image,:traning_id).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    @post = Post.find(params[:id])
+
+    if !(user_signed_in? && current_user.id == @post.user.id)
+      redirect_to root_path
+    end
   end
 
 end

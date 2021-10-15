@@ -7,14 +7,20 @@
 <div class="news_contents wrapper">
 
   <div class="news_left">
+   <div id="image_preview">
     <div>
       <%= image_tag @post.image %>
+    </div>
     </div>
   </div>
 
   <div class="news_right wrapper">
 
    <%= form_with model: @post, local: true do |f|%>
+    
+    <%# エラーメッセージの表示 %>
+    <%= render 'shared/error_messages', model: f.object %>
+    
       <div class="field">
         <%= f.label :title, "タイトル(必須)" %><br />
         <%= f.text_field :title, id:"post_title" %>

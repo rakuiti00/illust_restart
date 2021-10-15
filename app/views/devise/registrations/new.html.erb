@@ -10,46 +10,46 @@
     </div>
 
     <div class="field">
-      <%= f.label :profile, "プロフィール(任意)" %><br />
-      <%= f.text_area :profile, id:"user_profile" %>
+      <%= f.label :profile, "プロフィール" %><br />
+      <%= f.text_area :profile, id:"user_profile",class:"form-control profile" %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email %><span class="badge bg-primary parmit">必須</span><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control"%>
     </div>
 
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% end %><span class="badge bg-primary parmit">必須</span><br />
+      <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :password_confirmation %><span class="badge bg-primary parmit">必須</span><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control" %>
     </div>
 
 
     <div class="field">
-      <%= f.label :twitter_url, "Twitterアドレス(任意)" %><br />
+      <%= f.label :twitter_url, "Twitterアドレス" %><br />
       <%= f.text_field :twitter_url, id:"twitter_url",class:"form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :pixiv_url, "Pixivアドレス(任意)" %><br />
+      <%= f.label :pixiv_url, "Pixivアドレス" %><br />
       <%= f.text_field :pixiv_url, id:"pixiv_url",class:"form-control" %>
     </div>
     
     <div class="field">
-      <%= f.label :another_url, "その他連絡用アドレス(任意)" %><br />
+      <%= f.label :another_url, "その他連絡用アドレス" %><br />
       <%= f.text_field :another_url, id:"another_url",class:"form-control" %>
     </div>
 
       <div class="field">
-        <%= f.label :imaga, "アバター画像(任意)" %><br />
+        <%= f.label :imaga, "アバター画像" %><br />
         <%= f.file_field :image, id:"user_image" %>
       </div>
 

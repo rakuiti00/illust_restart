@@ -74,16 +74,6 @@ input{
 /*インデックスページ 
 /*************************************************************************************************/
 
-/* #index{
-  background-image: url("/images/main-bg.jpg");
-  min-height: 100vh;
-} */
-
-/* .bg{
-  background-size: cover;
-  background-position: top center;
-} */
-
 header .wrapper{
   display: flex;
   justify-content: space-between;
@@ -137,12 +127,32 @@ header .wrapper{
 .main_description p{
   margin-bottom: 25px;
 }
-.menu_content{
-  margin-bottom: 50px;
+
+
+.main_menu{
+  display: flex;
+  justify-content: space-between;
 }
 
-
+/* 投稿ページへのリンクボタン */
+.post_link{
+  width: 200px;
+  height: 250px;
+  background-color:rgba(255, 0, 255, 0.05);
+  color:#333;
+  border: none;
+  margin-right: 50px;
+  
+}
 /* 練習用ページへのリンクボタン */
+.traning_link{
+  width: 200px;
+  height: 250px;
+  background-color:rgba(5, 241, 229,0.25);
+  color:#333;
+  border: none;
+}
+
 /* .traning_link{
   font-size: 1.2rem;
   padding: 15px 30px;
@@ -184,8 +194,30 @@ width: 48%;
 width: 48%;
 /* border: blue 1px solid; */
 }
+
 .check_point{
   color:#FF0066;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 詳細表示画面(2カラム画面は流用する)*/
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.show_contents{
+  display: flex;
+  justify-content: space-between;
+  padding:10px 0;
+  margin-bottom: 20px;
+}
+.show_left{
+width: 55%;
+/* border:red 1px solid; */
+}
+.show_right{
+width: 40%;
+/* border: blue 1px solid; */
+}
+
+.show_data{
+  margin-bottom: 20px;
 }
 
 
@@ -203,7 +235,7 @@ width: 48%;
 }
 
 .menu_content{
-  padding:3% 0 ;
+  padding-bottom:3%;
   text-align: center;
 }
 
@@ -324,6 +356,10 @@ textarea{
   margin-left: 5px;
 }
 
+.profile{
+  width: 50%;
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 練習用お題ページ */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -340,7 +376,7 @@ textarea{
 /* BootStrap再調整 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .form-control{
-  border: 1px solid deepskyblue;
+  border: 1px solid #ccc;
 } 
 
 .traning_btn{

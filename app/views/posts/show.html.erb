@@ -4,70 +4,82 @@
 </div>
 
 <!-- 2カラム部分 -->
-<div class="news_contents wrapper">
+<div class="show_contents wrapper">
 
-  <div class="news_left">
- 
-    <div class="show_image">
-      <%= image_tag @post.image %>
-    </div>
+  <div class="show_left">
+      <div class="show_image">
+        <%= image_tag @post.image %>
+      </div>
   </div>
   
-  <div class="news_right wrapper">
+  <div class="show_right wrapper">
 
-       <div>
+       <div class="show_data">
           <span>ユーザー名</span>
-          <p  class="show__username">
-            <%= @post.user.nickname %>
-          </p>
+          <div  class="show__username">
+            <h5><%= @post.user.nickname %></h5>
+          </div>
        </div>
 
-         <div>
+       <div class="show_data">
           <span>イラストタイトル</span>
-          <p class="show__title">
-            <%= @post.title %>
-          </p>
-        </div>
-
-        <div>
-          <span>イラストの内容・補足</span>
-          <p  class="show__description">
-            <%= @post.description %>
-          </p>
+          <div class="show__title">
+            <h5><%= @post.title %></h5>
+          </div>
        </div>
 
-        <div>
+        <div class="show_data">
+          <span>イラストの内容・補足</span>
+          <div  class="show__description">
+            <%= @post.description %>
+          </div>
+       </div>
+
+        <div class="show_data">
           <span>アドバイスの有無</span>
-          <p  class="show__advice">
+          <div  class="show__advice">
             <% if @post.advice_flag %>
               アドバイス・指摘等お願いします
             <% else %>
               アドバイス・指摘等は不要です
             <% end %>
-          </p>
+          </div>
        </div>
 
-      <%# if user_signed_in? && current_user.id == @post.user_id %>
-        <div class="prototype__manage">
+        <div class="show_data">
+          <span>通常 or ランダムお題練習イラスト</span>
+          <div  class="show__advice">
+            <% if @post.traning_flag %>
+              通常のイラストです。
+            <% else %>
+              <span>ランダムお題練習用のイラストです。</span><br><br>
+              <%= "お題練習テーマ： #{@post.traning.theme_text}" %>
+            <% end %>
+          </div>
+       </div>
+
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="show__manage">
           <%= link_to "編集する", edit_post_path(@post.id) %>
           <%= link_to "削除する", post_path, method: :delete%>
         </div>
-      <%# end %>
+      <% end %>
 
-      <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
-      <% if Like.find_by(user_id: current_user.id,post_id: @post.id)  %>
-        <%= link_to(post_like_path(@post.id),{method: :delete}) do  %>  
-           <span class="fa fa-heart like_btn_on"></span>
-           <%= @like_count %> 
-        <% end  %>
-      <% else %>
-        <%= link_to(post_likes_path(@post.id),{method: :post}) do %>
-           <span class="fa fa-heart like_btn_off"></span>
-           <%= @like_count %> 
-        <% end %>
-
-      <% end  %>
-  </div>
+      <% if user_signed_in? %>
+          <% if Like.find_by(user_id: current_user.id,post_id: @post.id)  %>
+              <span class="fa fa-heart like_btn_on"></span>
+              <%= Like.where(post_id: @post.id).count %> 
+          <% else %>
+            <span class="fa fa-heart like_btn_off"></span> 
+            <%= Like.where(post_id: @post.id).count %> 
+          <% end %>
+        
+          <%# ログインしていない場合はいいねの総数のみを表示  %>
+        <% else  %>
+              <span class="fa fa-heart like_btn_on"></span> 
+              <%= Like.where(post_id: @post.id).count %> 
+      <% end %>
+    </div>
  </div>
 
  <div class="wrapper comments">
