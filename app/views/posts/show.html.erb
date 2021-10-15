@@ -61,7 +61,7 @@
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="show__manage">
           <%= link_to "編集する", edit_post_path(@post.id) %>
-          <%= link_to "削除する", post_path, method: :delete%>
+          <%= link_to "削除する", post_path(@post.id), method: :delete%>
         </div>
       <% end %>
 
@@ -83,7 +83,12 @@
  </div>
 
  <div class="wrapper comments">
-    <%= form_with model:[@post,@comment],local: true do |f|%>
+  <% if user_signed_in? %>
+   <%= form_with model:[@post,@comment],local: true do |f|%>
+
+    <%# エラーメッセージの表示 %>
+    <%= render 'shared/error_messages', model: f.object%>
+
       <div class="field">
             <%= f.label :good_point, "良い点(必須)" %><br />
             <%= f.text_area :good_point, id:"good_point" %>
@@ -103,6 +108,7 @@
             <%= f.submit "送信する", class: :form__btn  %>
       </div>
     <% end %> 
+  <% end %>
 
     <p>コメント一覧の表示</p>
     <div class="wrapper">
@@ -110,10 +116,21 @@
         <%# 投稿に紐づくコメントを一覧する処理を記述する %>
         <% @comments.each do |comment| %>
           <li class="comments_list">
-            <%= "良い点：#{comment.good_point}"%><br>
-            <%= "コメント：#{comment.text}"%><br>
-            <%= "アドバイス：#{comment.advice}"%><br>
-            <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %> 
+            <div><%= link_to comment.user.nickname, user_path(comment.user_id) %></div> 
+            <div class="comment_box">
+              <div class="comment_label">良い点</div>
+              <div><%= simple_format(comment.good_point) %></div>
+            </div>
+             <div class="comment_box">
+              <div class="comment_label">コメント</div>
+              <div><%= simple_format(comment.text) %></div>
+            </div>
+            <% if comment.post.advice_flag == true %>
+             <div class="comment_box">
+              <div class="comment_label">アドバイス</div>
+              <div><%= simple_format(comment.advice) %></div>
+            </div>
+            <% end %>
           </li>
         <% end  %>
         <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
