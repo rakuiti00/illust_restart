@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap');
 
-/* html {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(#00bfff, #fff);
-} */
-
-.sakura {
-  position: absolute;
-  top: -100px;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .sakura li{
   position: absolute;
