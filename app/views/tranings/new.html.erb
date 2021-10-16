@@ -5,18 +5,25 @@
 <div class="wrapper ">
 
 <%= form_with model: @traning, local: true do |f|%>
+
+    <%# エラーメッセージの表示 %>
+    <%= render 'shared/error_messages', model: f.object %>
+
       <div class="field">
-        <%= f.label :theme_text, "イラストのお題追加内容(必須)" %><br />
+        <%= f.label :theme_text, "練習用ランダムお題の追加(必須)" %><br />
         <%= f.text_field :theme_text, id:"theme_text" %>
       </div>
 
       <div class="field">
         <%= f.label :image, "お題の参考イラスト(任意)" %><br />
-        <%= f.file_field :image, id:"theme_image" %>
+        <%= f.file_field :image,  id:"post_image" %>
       </div>
 
+      <div id="image_preview" , class="traning_image_preview">
+     </div>
+
       <div class="actions">
-        <%= f.submit "投稿する", class: :form__btn  %>
+        <%= f.submit "追加する", class: :form__btn  %>
       </div>
    <% end %>
 </div>
