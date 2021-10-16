@@ -277,6 +277,13 @@ width: 40%;
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* マイページ
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.user_contents{
+  display: flex;
+  justify-content: space-between;
+  padding:10px 0;
+  margin-bottom: 50px;
+}
+
 .user_left{
   display: flex;
   justify-content: center;
@@ -289,14 +296,16 @@ width: 40%;
 }
 
 .user_image{
-  
-}
-.user_image{
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 1px solid #ccc;
   object-fit: cover;
+}
+
+.user_data{
+ margin-bottom: 4px;
+ font-weight: bold; 
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -346,11 +355,18 @@ textarea{
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .traning_text{
   text-align: center;
-  font-size: 20px;
+  font-size: 80px;
+  margin: 50px 0;
+  color: #111;
+  font-family: serif;
 }
 .traning_image{
   width: 30%;
   margin: 0 auto ;
+}
+
+.traning_menu{
+  text-align: center;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */

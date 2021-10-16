@@ -1,26 +1,33 @@
 
 <div>
-  <h2 class="wrapper">マイページ</h2>
+  <h2 class="wrapper alert alert-light">マイページ</h2>
 </div>
 
 <!-- 2カラム部分 -->
-<div class="news_contents wrapper">
+<div class="user_contents wrapper">
 
-  <div class="news_left user_left">
+  <div class="wrapper user_left">
     <div>
-      <img class="user_image" src="/images/bg2.jpg" alt="" >
+      <% if @user.image.attached? %>
+          <%= image_tag @user.image ,class:"user_image"%>        
+      <% else  %>
+        <%# アバター画像を登録していない場合、デフォルト画像を表示 %>
+        <img class="user_image" src="/images/bg2.jpg" alt="">
+      <% end %>
     </div>
   </div>
-  <div class="news_right wrapper user_right">
-      <p><%= "ユーザー名 : #{@user.nickname}" %></p>
-      <p><%= "投稿数 : #{@posts.count}" %></p>
-      <p><%= "TwitterURL : #{@user.twitter_url}"%></p>
-      <p><%= "PixivURL : #{@user.pixiv_url}" %></p>
-      <p><%= "その他連絡先 : #{@user.another_url}" %></p>
-      <p><%= "総いいね数 : #{@likes_count}/100で卒業!" %></p>
+  <div class="wrapper user_right">
+      <div class="user_data"><%= "ユーザー名 : #{@user.nickname}" %></div>
+      <div class="user_data"><%= "プロフィール : #{@user.profile}" %></div>
+      <div class="user_data"><%= "投稿数 : #{@posts.count}" %></div>
+      <div class="user_data"><%= "TwitterURL : #{@user.twitter_url}"%></div>
+      <div class="user_data"><%= "PixivURL : #{@user.pixiv_url}" %></div>
+      <div class="user_data"><%= "その他連絡先 : #{@user.another_url}" %></div>
+      <div class="user_data"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></div>
   </div>
 </div>
 
+<h2 class ="alert alert-light">投稿イラストの一覧</h2>
 <div class="wrapper grid"> 
  <div class="items">
     <% @posts.each do |post| %> 

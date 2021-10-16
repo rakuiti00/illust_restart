@@ -1,29 +1,25 @@
 <div class="wrapper ">
-  <h2>練習用お題の表示ページ</h2> 
+  <h2 class="wrapper alert alert-light">練習用ランダムお題の表示ページ</h2> 
 </div>
-<div class="wrapper traning_text ">
-  <h2><%= @traning.theme_text %></h2>
-  <h2><%= "確認用 お題ID：#{@traning.id}" %></h2>
-
+<div class="traning_text ">
+   <%= @traning.theme_text %>
+</div>
 <div class="wrapper traning_image ">
   <%# ActiveStrageテーブルに画像が存在しない場合は表示しない %>
-  <% if !(ActiveStorage::Attachment.exists?(record_id: @traning.id,record_type: "Traning"))%>
-      <%# ダミー画像 %>
-      <img src="/images/bg3.jpg" alt="">
+  <% if ActiveStorage::Attachment.exists?(record_id: @traning.id,record_type: "Traning")%>
+       <%= image_tag @traning.image %>
   <% else %>
-     <%= image_tag @traning.image %>
+    <%# ダミー画像 %>
+      <img src="/images/bg3.jpg" alt="">
   <% end %>
 
 </div>
-
-<div>
-  <%= link_to "お題追加ボタン（仮）",new_traning_path %>
-</div>
-
-<div>
-  <%= link_to "お題で絵を投稿する",new_post_path(traning_id: @traning.id) %>
-</div>
-
+  <div class="traning_menu" >  
+    <%= link_to "練習用のお題を追加",new_traning_path ,class:"btn btn-outline-primary" %><br>
+      <% if user_signed_in?  %>
+        <%= link_to "練習用のお題で絵を投稿する",new_post_path(traning_id: @traning.id),class:"btn btn-outline-primary"  %>
+      <% end  %>
+  </div>
 <!-- グリッド部分 -->
 <div class="wrapper grid"> 
 
@@ -31,13 +27,14 @@
     <% @posts.each do |post| %> 
           <div class='item'>
             <%= link_to post_path(post.id) do %>
-            <%= image_tag post.image %><br>
-            <%= post.title %><br>
-            <%= post.user.nickname %><br>
-            <% if post.advice_flag %> 
-              <span>アドバイス・指摘等お願いします</span><br>
-            <% end  %>
-          <% end %>
+              <%= image_tag post.image %><br>
+              <%= post.title %><br>
+              <% if post.advice_flag %> 
+                <span>アドバイス・指摘等お願いします</span><br>
+              <% end  %>
+            <% end %>
+            <%= link_to post.user.nickname, user_path(post.user_id) %><br>
+            
           
             <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
             <% if user_signed_in? %>
