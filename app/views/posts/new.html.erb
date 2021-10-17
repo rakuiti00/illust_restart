@@ -33,33 +33,48 @@
       <div class="field">
           <%= f.label :advice_flag, "コメントによる他のユーザーからのアドバイスの有無" %><br />
           <div class="radio_area">
-            <%= f.radio_button :advice_flag, :true  %>
+            <%= f.radio_button :advice_flag, 0 %>
             <%= f.label :advice_flag, "アドバイスや指摘が欲しい" %><br />
-            <%= f.radio_button :advice_flag, :false%>
+            <%= f.radio_button :advice_flag, 1 , checked: true %>
             <%= f.label :advice_flag, "アドバイスや指摘はいらない" %><br />
            <span class="check_point">※絵にはそれぞれの描き方があるため、<br />その人のアドバイスが本当に有効かはわかりません。</span>
           </div>
-
       </div>
 
-      <div class="field">
-          <%= f.label :traning_flag, "イラスト練習お題に関する投稿" %><br />
-           <div class="radio_area">
-            <%= f.radio_button :traning_flag, :true %>
-            <%= f.label :traning_flag, "通常のイラスト" %><br />
-            <%= f.radio_button :traning_flag, :false%>
-            <%= f.label :traning_flag, "お題用イラスト" %><br />
+      <% if @traning_id == 1 %>
+        <div class="field">
+              <%= f.label :traning_flag, "イラスト練習お題に関する投稿" %><br />
+              <div class="radio_area">
+                <%= f.radio_button :traning_flag, 0, checked: true%>
+                <%= f.label :traning_flag, "通常のイラスト" %><br />
+                <%= f.radio_button :traning_flag, 1 %>
+                <%= f.label :traning_flag, "お題用イラスト" %><br />
+              </div>
           </div>
-      </div>
-
+      <% else %>
+        <div class="field">
+              <%= f.label :traning_flag, "イラスト練習お題に関する投稿" %><br />
+              <div class="radio_area">
+                <%= f.radio_button :traning_flag, 0%>
+                <%= f.label :traning_flag, "通常のイラスト" %><br />
+                <%= f.radio_button :traning_flag, 1, checked: true %>
+                <%= f.label :traning_flag, "お題用イラスト" %><br />
+              </div>
+          </div>
+      <% end %>
+        
+ 
       <div class="field">
         <%= f.label :imaga, "投稿するイラストの画像(必須)" %><br />
         <%= f.file_field :image, id:"post_image" %>
       </div>
 
+
+
       <div class="actions">
         <%= f.submit "投稿する", class: "btn btn-outline-primary"  %>
       </div>
+
 
       <%= f.hidden_field :traning_id, :value => @traning_id %>
    <% end %>
