@@ -62,11 +62,15 @@
               <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
               <% if user_signed_in? %>
                 <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+                   <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
                     <span class="fa fa-heart like_btn_on"></span>
                     <%= Like.where(post_id: post.id).count %> 
+                   <% end %>
                 <% else %>
-                  <span class="fa fa-heart like_btn_off"></span> 
-                  <%= Like.where(post_id: post.id).count %> 
+                   <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
+                    <span class="fa fa-heart like_btn_off"></span> 
+                     <%= Like.where(post_id: post.id).count %>
+                    <% end %> 
                 <% end %>
               <%# ログインしていない場合はいいねの総数のみを表示  %>
               <% else  %>
