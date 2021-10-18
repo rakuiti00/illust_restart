@@ -1,11 +1,6 @@
 
-<div>
-  <h2 class="wrapper"> 詳細表示画面</h2>
-</div>
-
 <!-- 2カラム部分 -->
 <div class="show_contents wrapper">
-
   <div class="show_left">
       <div class="show_image">
         <%= image_tag @post.image %>
@@ -16,28 +11,28 @@
 
        <div class="show_data">
           <span>ユーザー名</span>
-          <div  class="show__username">
-            <h5><%= @post.user.nickname %></h5>
+          <div  class="show__userdata user_link">
+            <%= link_to @post.user.nickname , user_path(@post.user_id)%>
           </div>
        </div>
 
        <div class="show_data">
           <span>イラストタイトル</span>
-          <div class="show__title">
-            <h5><%= @post.title %></h5>
+          <div class="show__userdata">
+            <%= @post.title %>
           </div>
        </div>
 
         <div class="show_data">
           <span>イラストの内容・補足</span>
-          <div  class="show__description">
+          <div  class="show__userdata">
             <%= @post.description %>
           </div>
        </div>
 
         <div class="show_data">
           <span>アドバイスの有無</span>
-          <div  class="show__advice">
+          <div  class="show__userdata">
             <% if @post.advice_flag %>
               アドバイス・指摘等お願いします
             <% else %>
@@ -48,7 +43,7 @@
 
         <div class="show_data">
           <span>通常 or ランダムお題練習イラスト</span>
-          <div  class="show__advice">
+          <div  class="show__userdata">
             <% if @post.traning_flag %>
               通常のイラストです。
             <% else %>
@@ -57,13 +52,6 @@
             <% end %>
           </div>
        </div>
-
-      <% if user_signed_in? && current_user.id == @post.user_id %>
-        <div class="show__manage">
-          <%= link_to "編集する", edit_post_path(@post.id) %>
-          <%= link_to "削除する", post_path(@post.id), method: :delete%>
-        </div>
-      <% end %>
 
       <% if user_signed_in? %>
       <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
@@ -84,44 +72,57 @@
               <span class="fa fa-heart like_btn_on"></span> 
               <%= Like.where(post_id: @post.id).count %> 
       <% end %>
+
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+       <div class="show__manage_box">
+        <span class="show__manage">
+          <%= link_to "編集する", edit_post_path(@post.id) %>
+          <%= link_to "削除する", post_path(@post.id), method: :delete%>
+        </span>
+       </div>
+      <% end %>
+ 
     </div>
  </div>
+ <h4 class= "alert alert alert-light">コメント欄</h4>
 
  <div class="wrapper comments">
   <% if user_signed_in? %>
+  <div class="comment_input">
    <%= form_with model:[@post,@comment],local: true do |f|%>
 
     <%# エラーメッセージの表示 %>
     <%= render 'shared/error_messages', model: f.object%>
 
       <div class="field">
-            <%= f.label :good_point, "良い点(必須)" %><br />
+            <%= f.label :good_point, "良い点" %><span class="badge require">必須</span><br />
             <%= f.text_area :good_point, id:"good_point" %>
       </div>
       <div class="field">
-            <%= f.label :text, "コメント(必須)" %><br />
+            <%= f.label :text, "コメント" %><span class="badge require">必須</span><br />
             <%= f.text_area :text, id:"comment_text" %>
       </div>
 
       <% if @post.advice_flag %>
          <div class="field">
-            <%= f.label :advice, "気になる点やアドバイス(任意)" %><br />
+            <%= f.label :advice, "気になる点やアドバイス" %><br />
             <%= f.text_area :advice, id:"advice" %>
           </div>
       <% end %>
       <div class="actions">
-            <%= f.submit "送信する", class: :form__btn  %>
+            <%= f.submit "送信する", class:"btn btn-outline-primary"  %>
       </div>
-    <% end %> 
+    <% end %>
+  </div> 
   <% end %>
 
-    <p>コメント一覧の表示</p>
+    <h4 class= "alert alert alert-light">コメント一覧</h4>
     <div class="wrapper">
       <ul class="comments_lists">
         <%# 投稿に紐づくコメントを一覧する処理を記述する %>
         <% @comments.each do |comment| %>
           <li class="comments_list">
-            <div><%= link_to comment.user.nickname, user_path(comment.user_id) %></div> 
+            <div class="comments_username user_link"><%= link_to comment.user.nickname, user_path(comment.user_id) %></div> 
             <div class="comment_box">
               <div class="comment_label">良い点</div>
               <div><%= simple_format(comment.good_point) %></div>

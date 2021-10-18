@@ -1,8 +1,4 @@
 
-<div>
-  <h2 class="wrapper alert alert-light">マイページ</h2>
-</div>
-
 <!-- 2カラム部分 -->
 <div class="user_contents wrapper">
 
@@ -12,26 +8,27 @@
           <%= image_tag @user.image ,class:"user_image"%>        
       <% else  %>
         <%# アバター画像を登録していない場合、デフォルト画像を表示 %>
-        <img class="user_image" src="/images/bg2.jpg" alt="">
+        <img class="user_image" src="/images/dummy.jpg" alt="">
       <% end %>
     </div>
   </div>
   <ul class="wrapper user_right">
-      <li class="user_data"><%= "ユーザー名 : #{@user.nickname}" %></li>
-      <li class="user_data"><%= "プロフィール : #{@user.profile}" %></li>
-      <li class="user_data"><%= "投稿数 : #{@like_posts.count}" %></li>
-      <li class="user_data"><%= "TwitterURL : #{@user.twitter_url}"%></li>
-      <li class="user_data"><%= "PixivURL : #{@user.pixiv_url}" %></li>
-      <li class="user_data"><%= "その他連絡先 : #{@user.another_url}" %></li>
-      <li class="user_data"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></li><br>
+      <li class="user_data user_data_name"><%= @user.nickname %>
+      <span class="user_data_postcount"><%= " 投稿数 : #{@like_posts.count}件" %></span></li>
+      <li class="user_data user_data_link"><span>Twitter: </span><%= link_to @user.twitter_url , @user.twitter_url%></li>
+      <li class="user_data user_data_link"><span>Pixiv: </span><%= link_to @user.pixiv_url , @user.pixiv_url%></li>
+      <li class="user_data user_data_link"><span>その他連絡先:</span><%= link_to @user.another_url , @user.another_url%></li>
+      <li class="user_data user_like_count"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></li>
+      <li class="user_data user_profile_title">プロフィール:</li>
+      <li class="user_data user_profile" ><%= @user.profile %></li><br>
       <% if user_signed_in? && @user.id == current_user.id %>
-        <li class="user_data"><%= link_to "編集・削除する" , edit_user_registration_path(@user.id) %></li>        
+        <li class="user_data"><span class="user_update"><%= link_to "編集・削除する" , edit_user_registration_path(@user.id) %></li>        
       <% end %>
 
   </ul>
 </div>
 
-<h2 class ="alert alert-light">投稿イラストの一覧</h2>
+<h4 class ="alert alert-light">投稿イラストの一覧</h4>
 <div class="wrapper grid"> 
  <div class="items">
     <% @posts.each do |post| %> 

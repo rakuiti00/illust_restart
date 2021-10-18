@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @like_count = Like.where(post_id: params[:id]).count
     @comment = Comment.new
-    @comments = @post.comments.includes(:user).page(params[:page]).per(4)
+    @comments = @post.comments.includes(:user).page(params[:page]).per(3)
   end
 
   def edit
