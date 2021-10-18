@@ -7,6 +7,7 @@
 /* 共通部分 */
 html{
   font-size: 100%;
+  
 }
 
 body{
@@ -16,9 +17,14 @@ body{
 }
 
 a{
-    color:#333;
-    text-decoration: none; /* リンクの下線削除 */
-  }
+  color:#333;
+  text-decoration: none; /* リンクの下線削除 */
+ }
+
+a:hover{
+  text-decoration: none;
+}
+  
 
 /* 親要素より画像が大きくならないようにする。 */
 img {
@@ -35,19 +41,27 @@ img {
 }
 
 
-h2{
+h2,h3,h4{
   text-align: center;
+}
+
+header{
+  background-color: rgba(246, 246, 249, 0.4);
 }
 
 footer{
   color: #333;
   text-align: center;
-  padding:5px 0
+  padding:5px 0;
+  background-color: rgba(246, 246, 249, 0.4);
+  margin-top: 25px;
 }
 
 li{
   list-style: none;
 }
+
+
 
 
 
@@ -77,13 +91,12 @@ input{
 /*************************************************************************************************/
 /*インデックスページ 
 /*************************************************************************************************/
-
 header .wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 /* ヘッダータイトル */
@@ -141,9 +154,10 @@ header .wrapper{
   background-color:rgba(255, 0, 255, 0.05);
   color:#333;
   border: none;
-  margin-right: 50px;
-  
+  margin-right: 50px; 
 }
+
+
 /* 練習用ページへのリンクボタン */
 .traning_link{
   width: 200px;
@@ -175,7 +189,7 @@ width: 48%;
   color:#FF0066;
 }
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 詳細表示画面(2カラム画面は流用する)*/
+/* 詳細表示画面(2カラム画面は流用したい)*/
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .show_contents{
   display: flex;
@@ -184,27 +198,72 @@ width: 48%;
   margin-bottom: 20px;
 }
 .show_left{
-width: 55%;
+width: 63%;
+border: 1px solid #ccc;
 /* border:red 1px solid; */
+margin: 0 auto;
 }
-.show_right{
-width: 40%;
-/* border: blue 1px solid; */
+.show_image image{
+  max-width: 100%;
+  object-fit: contain;
 }
 
+.show_right{
+width: 30%;
+/* border: blue 1px solid; */
+}
 .show_data{
   margin-bottom: 20px;
 }
-
-.comment_box{
-  /* border: 1px solid #333; */
-  margin-bottom: 10px;
-  background-color:#eee; 
+.show__userdata{
+  font-size: 1.1rem;
+  /* font-family: 'Philosopher', serif; */
 }
 
+.user_link a{
+  color:rgb(41, 117, 255);
+}
+
+.show__manage_box{
+  margin-top: 10px;
+}
+
+.show__manage{
+  border: 1px solid #ccc;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* コメント欄 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.comments{
+  margin: 0 auto; 
+}
+.comment_input{
+  margin-bottom: 30px;
+}
+
+.comments_username{
+  background-color:rgba(16, 19, 31, 0.01);
+}
 .comment_label{
-  /* border: 1px solid red; */
+  border: 1px solid #ccc;
+  border-bottom: none;
+  font-weight: bold;
 }
+.comments_lists{
+  margin: 0 auto;
+}
+.comments_list{
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+/* .comment_box{
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+
+} */
+
 
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -215,12 +274,12 @@ width: 40%;
   background-color:rgba(255,255,255,0.6);
   background-blend-mode:lighten; 
   min-height: 50vh;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   background-size: cover;
 }
 
 .menu_content{
-  padding-bottom:3%;
+  padding-bottom:5%;
   text-align: center;
 }
 
@@ -243,6 +302,17 @@ width: 40%;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* ログイン画面
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* 新規登録画面
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.sign_up{
+  margin-top: 15px;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 新規登録画面・ログイン画面・LGTM画面の背景 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #sign_up,#sign_in,#user_edit,.lgtm{
@@ -259,7 +329,7 @@ width: 40%;
 /* 微調整 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .field{
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -296,16 +366,42 @@ width: 40%;
 }
 
 .user_image{
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   border: 1px solid #ccc;
   object-fit: cover;
 }
 
-.user_data{
- margin-bottom: 4px;
- font-weight: bold; 
+.user_data_name{
+  font-size: 2rem;
+}
+.user_data_postcount{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.user_data_link{
+  margin-left: 10px;
+}
+
+.user_data_link a{
+  font-size: 1.1rem;
+  color:#1a0dab;
+}
+.user_like_count{
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.user_profile_title{
+  font-weight: bold;
+}
+.user_profile{
+  margin-left: 10px;
+}
+.user_update{
+  border:1px solid #999;
+  padding:5px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -329,6 +425,7 @@ width: 40%;
 /* #comment_text{
   width: 80%;
 } */
+
 input[type="text"],input[type="email"]{
   width: 50%;
 }
@@ -343,11 +440,6 @@ textarea{
 
 .radio_area{
   margin-left: 20px;
-}
-
-.parmit{
-  color:#eee;
-  margin-left: 5px;
 }
 
 .profile{
@@ -391,6 +483,19 @@ textarea{
   font-size: 30px;
   width: 400px;
 }
+/* .bg-primary {
+  color: #fff;
+  
+  
+} */
+.require{
+  font-size: 12px;
+  font-weight: normal;
+  color:#fff;
+  margin-left: 5px;
+  background-color:rgba(25, 148, 255, 0.83);
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 画像プレビュー */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -400,10 +505,6 @@ textarea{
   align-items: center;
   
 }
-/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 画像プレビュー */
-/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */

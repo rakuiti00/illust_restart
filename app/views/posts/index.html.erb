@@ -21,16 +21,19 @@
       <div class="main_menu">
         <div class="card-body post_link">
             <%= link_to new_post_path do%>
+              <div>
                 <h3 class="card-title">描いたイラストを投稿する</h3><br>
                 <p class="card-text">絵は練習だけだと上手くなっているのかわかりずらいです。<br>
                   日々の練習の後にアウトプットとしてイラストを描くと、</p>
                 <p class="card-text">後々自分の成長過程がわかり<br>
                   モチベーションややる気につながっていきます。</p>
+              </div>
             <%end%>
         </div> 
 
         <div class="card-body traning_link">
             <%= link_to tranings_path do%>
+              <div>
                 <h3 class="card-title">ランダムお題練習ページへ</h3><br>
                 <p class="card-text">イラストで描く内容が思いつかないなどの場合、<br>
                    こちらでランダムなお題が表示されます。<br>
@@ -39,13 +42,14 @@
 
                 <p class="card-text">※練習用のお題の追加なども可能なので、<br>
                  気が向いたら気軽に追加していただけると助かります。</p>
+              </div>
             <%end%>
         </div> 
       </div>
 
    </div>
 
-  <h2>投稿イラストの一覧(新着・更新順)</h2>
+  <h4>投稿イラストの一覧(新着・更新順)</h4>
   <!-- グリッド部分 -->
   <div class="wrapper grid"> 
     <div class="items">
