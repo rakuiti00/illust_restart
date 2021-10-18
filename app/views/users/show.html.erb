@@ -16,15 +16,19 @@
       <% end %>
     </div>
   </div>
-  <div class="wrapper user_right">
-      <div class="user_data"><%= "ユーザー名 : #{@user.nickname}" %></div>
-      <div class="user_data"><%= "プロフィール : #{@user.profile}" %></div>
-      <div class="user_data"><%= "投稿数 : #{@like_posts.count}" %></div>
-      <div class="user_data"><%= "TwitterURL : #{@user.twitter_url}"%></div>
-      <div class="user_data"><%= "PixivURL : #{@user.pixiv_url}" %></div>
-      <div class="user_data"><%= "その他連絡先 : #{@user.another_url}" %></div>
-      <div class="user_data"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></div>
-  </div>
+  <ul class="wrapper user_right">
+      <li class="user_data"><%= "ユーザー名 : #{@user.nickname}" %></li>
+      <li class="user_data"><%= "プロフィール : #{@user.profile}" %></li>
+      <li class="user_data"><%= "投稿数 : #{@like_posts.count}" %></li>
+      <li class="user_data"><%= "TwitterURL : #{@user.twitter_url}"%></li>
+      <li class="user_data"><%= "PixivURL : #{@user.pixiv_url}" %></li>
+      <li class="user_data"><%= "その他連絡先 : #{@user.another_url}" %></li>
+      <li class="user_data"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></li><br>
+      <% if user_signed_in? && @user.id == current_user.id %>
+        <li class="user_data"><%= link_to "編集・削除する" , edit_user_registration_path(@user.id) %></li>        
+      <% end %>
+
+  </ul>
 </div>
 
 <h2 class ="alert alert-light">投稿イラストの一覧</h2>

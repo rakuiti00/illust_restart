@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :likes
   has_many :coments
   has_many :tranings
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
   
 end
