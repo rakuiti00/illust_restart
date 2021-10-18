@@ -1,43 +1,77 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="wrapper" id="user_edit">
+  <h2 class="edit_title">アカウント情報の編集</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :nickname, "ユーザー名" %><span class="badge bg-primary parmit">必須</span><br />
+        <%= f.text_field :nickname, id:"user_name",class:"form-control"  %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+     <div class="field">
+       <%= f.label :email %><span class="badge bg-primary parmit">必須</span><br />
+       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     </div>
+
+     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+     <% end %>
+
+      <div class="field">
+        <%= f.label :current_password %><span class="badge bg-primary parmit">必須</span> <i>(アカウント情報を変更するには現在のパスワードが必要です)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :profile, "プロフィール" %><br />
+        <%= f.text_area :profile, id:"user_profile",class:"form-control profile" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :twitter_url, "Twitterアドレス" %><br />
+        <%= f.text_field :twitter_url, id:"twitter_url",class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :pixiv_url, "Pixivアドレス" %><br />
+        <%= f.text_field :pixiv_url, id:"pixiv_url",class:"form-control" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :another_url, "その他連絡用アドレス" %><br />
+        <%= f.text_field :another_url, id:"another_url",class:"form-control" %>
+      </div>
+
+        <div class="field">
+          <%= f.label :imaga, "アバター画像" %><br />
+          <%= f.file_field :image, id:"user_image" %>
+        </div>
+
+        <div class="pass_change_form">※登録パスワードを変更する場合、以下を記入。パスワード変更が必要ない場合は不要
+          <div class="field">
+            <%= f.label :password %> <i>(パスワードを変更したい場合、６文字以上で入力してください)</i><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><i>(パスワード確認のため再入力をお願いします)</i><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+        </div>
+
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="account_delete" >
+    <h3>アカウント削除</h3>
+
+    <p>アカウントを削除する場合は、以下のボタンを押してください。 <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete %></p>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  
+  <%= link_to "Back", :back %>
+</div>

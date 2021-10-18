@@ -45,6 +45,10 @@ footer{
   padding:5px 0
 }
 
+li{
+  list-style: none;
+}
+
 
 
 /* -------------------------------------------- */
@@ -241,7 +245,7 @@ width: 40%;
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 新規登録画面・ログイン画面・LGTM画面の背景 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-#sign_up,#sign_in,.lgtm{
+#sign_up,#sign_in,#user_edit,.lgtm{
   background-image: url("/images/bg3.jpg");
   background-size: cover;
 
