@@ -1,29 +1,31 @@
-<div>
-  <h2 class="wrapper">ランダムお題追加画面</h2>
-</div>
+<div id="traning_add">
+  <div>
+    <h2 class="wrapper alert alert-light traning_add_title">練習用ランダムお題の追加画面</h2> 
+  </div>
 
-<div class="wrapper ">
+  <div class="wrapper traning_add_page">
 
-<%= form_with model: @traning, local: true do |f|%>
+  <%= form_with model: @traning, local: true do |f|%>
 
-    <%# エラーメッセージの表示 %>
-    <%= render 'shared/error_messages', model: f.object %>
+      <%# エラーメッセージの表示 %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-      <div class="field">
-        <%= f.label :theme_text, "練習用ランダムお題の追加(必須)" %><br />
-        <%= f.text_field :theme_text, id:"theme_text" %>
+        <div class="field">
+          <%= f.label :theme_text, "練習用ランダムお題の追加" %><span class="badge require">必須</span><br />
+          <%= f.text_field :theme_text, id:"theme_text" %>
+        </div>
+
+        <div class="field ">
+          <%= f.label :image, "お題の参考画像" %><br />
+          <%= f.file_field :image,  id:"post_image" %>
+        </div>
+
+        <div id="image_preview" , class="traning_image_preview">
       </div>
 
-      <div class="field">
-        <%= f.label :image, "お題の参考イラスト(任意)" %><br />
-        <%= f.file_field :image,  id:"post_image" %>
-      </div>
-
-      <div id="image_preview" , class="traning_image_preview">
-     </div>
-
-      <div class="actions">
-        <%= f.submit "追加する", class: :form__btn  %>
-      </div>
-   <% end %>
-</div>
+        <div class="actions">
+          <%= f.submit "追加する", class: "btn btn-outline-primary"  %>
+        </div>
+    <% end %>
+  </div>
+ </div>

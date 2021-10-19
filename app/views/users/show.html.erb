@@ -15,12 +15,12 @@
   <ul class="wrapper user_right">
       <li class="user_data user_data_name"><%= @user.nickname %>
       <span class="user_data_postcount"><%= " 投稿数 : #{@like_posts.count}件" %></span></li>
-      <li class="user_data user_data_link"><span>Twitter: </span><%= link_to @user.twitter_url , @user.twitter_url%></li>
-      <li class="user_data user_data_link"><span>Pixiv: </span><%= link_to @user.pixiv_url , @user.pixiv_url%></li>
-      <li class="user_data user_data_link"><span>その他連絡先:</span><%= link_to @user.another_url , @user.another_url%></li>
+      <li class="user_data user_data_link"><span>Twitter:　　　　</span><%= link_to @user.twitter_url , @user.twitter_url%></li>
+      <li class="user_data user_data_link"><span>Pixiv:　　　　　 </span><%= link_to @user.pixiv_url , @user.pixiv_url%></li>
+      <li class="user_data user_data_link"><span>その他連絡先:　  </span><%= link_to @user.another_url , @user.another_url%></li>
       <li class="user_data user_like_count"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></li>
       <li class="user_data user_profile_title">プロフィール:</li>
-      <li class="user_data user_profile" ><%= @user.profile %></li><br>
+      <li class="user_data user_profile" ><%= simple_format(@user.profile) %></li><br>
       <% if user_signed_in? && @user.id == current_user.id %>
         <li class="user_data"><span class="user_update"><%= link_to "編集・削除する" , edit_user_registration_path(@user.id) %></li>        
       <% end %>
