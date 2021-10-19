@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     end
 
     # (テスト用) 総いいね数が一定ライン(一旦100)を越えたら卒業ページに飛ばす
-      # @likes_count = 100
+    #  @likes_count = 100
     if @likes_count >=  100
       render template: "users/lgtm"
     end
