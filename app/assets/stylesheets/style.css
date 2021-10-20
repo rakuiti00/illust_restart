@@ -54,16 +54,16 @@ footer{
   text-align: center;
   padding:5px 0;
   background-color: rgba(246, 246, 249, 0.4);
-  margin-top: 25px;
+  margin-top: 30px;
 }
+
+footer p{
+  margin-top: 10px;
+} 
 
 li{
   list-style: none;
 }
-
-
-
-
 
 /* -------------------------------------------- */
 
@@ -167,6 +167,10 @@ header .wrapper{
   border: none;
 }
 
+#user_link{
+  color:rgb(41, 117, 255);
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 投稿画面(2カラム画面は流用する)*/
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -184,7 +188,12 @@ width: 48%;
 width: 48%;
 /* border: blue 1px solid; */
 }
+#post_title{
+  width:100%; 
+}
 
+
+/* 注意書きなど */
 .check_point{
   color:#FF0066;
 }
@@ -198,7 +207,7 @@ width: 48%;
   margin-bottom: 20px;
 }
 .show_left{
-width: 63%;
+width:75%;
 border: 1px solid #ccc;
 /* border:red 1px solid; */
 margin: 0 auto;
@@ -240,31 +249,33 @@ width: 30%;
 .comment_input{
   margin-bottom: 30px;
 }
-
-.comments_username{
-  background-color:rgba(16, 19, 31, 0.01);
+.comment_input .field{
+  margin: 0 auto;
 }
+
+
 .comment_label{
-  border: 1px solid #ccc;
-  border-bottom: none;
+  /* border: 1px solid #ccc;
+  border-bottom: none; */
   font-weight: bold;
 }
 .comments_lists{
   margin: 0 auto;
+  width: 80%;
 }
 .comments_list{
   border: 1px solid #ccc;
-  border-radius: 3%;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
-/* .comment_box{
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
+.comment_box{
+  border: 1px solid #eee;
+}
 
-} */
-
+.comment_btn{
+  margin: 25px auto;
+}
 
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -330,7 +341,7 @@ width: 30%;
 /* 微調整 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .field{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -404,6 +415,32 @@ width: 30%;
   border:1px solid #999;
   padding:5px;
 }
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* マイページ編集画面 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+＃user_edit .field{
+  margin-bottom: 30px;  
+}
+
+.pass_change_form{
+  margin: 50px 0;
+}
+
+.pass_change_label{
+  color: rgb(59, 122, 255);
+}
+
+
+.account_delete{
+  margin: 50px 0;
+}
+
+.account_delete_title{
+  color:#555;
+
+}
+
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* LGTM */
@@ -411,11 +448,19 @@ width: 30%;
 .lgtm{
   font-size: 1.15rem;
   margin: 0 auto;
+  padding-bottom: 100px;
   text-align: center;
 }
 
 .lgtm p{
   margin-bottom: 20px;
+}
+
+.lgtm_link{
+  margin: 25px;
+}
+.lgtm a{
+  color: #1a0dab;
 }
 
 
@@ -437,6 +482,7 @@ input[type="password"]{
 
 textarea{
   width: 80%;
+  height: 5rem;  
 }
 
 .radio_area{
@@ -446,6 +492,7 @@ textarea{
 .profile{
   width: 50%;
 }
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 練習用お題ページ */
@@ -473,10 +520,13 @@ textarea{
 .traning_add{
   width: 200px;
   height: 250px;
-  background-color:rgba(0, 0, 255, 0.05);
   color:#333;
-  border: none;
   margin-right: 50px; 
+  /* background-image: url("/images/bg3.jpg"); 
+  background-size: cover;
+  background-blend-mode:lighten; */
+  background-color:rgba(166, 125, 255, 0.07);
+  border:1px solid rgba(166, 125, 255, 0.07);
 }
 
 
@@ -484,9 +534,9 @@ textarea{
 .traning_post{
   width: 200px;
   height: 250px;
-  background-color:rgba(5, 241, 229,0.15);
+  background-color:rgba(5, 241, 229,0.07);
   color:#333;
-  border: none;
+    border:1px solid rgba(166, 125, 255, 0.07);
 }
 
 .traning_add_page .field{
