@@ -1,13 +1,11 @@
 <div id="traning_add">
-  <div>
-    <h2 class="wrapper alert alert-light traning_add_title">練習用ランダムお題の追加画面</h2> 
-  </div>
+    <div>
+      <h2 class="wrapper alert alert-light traning_add_title">練習用ランダムお題の追加画面</h2> 
+    </div>
 
   <div class="wrapper traning_add_page">
+    <%= form_with model: @traning, local: true do |f|%>
 
-  <%= form_with model: @traning, local: true do |f|%>
-
-      <%# エラーメッセージの表示 %>
       <%= render 'shared/error_messages', model: f.object %>
 
         <div class="field">
@@ -21,11 +19,12 @@
         </div>
 
         <div id="image_preview" , class="traning_image_preview">
-      </div>
+        </div>
 
         <div class="actions">
           <%= f.submit "追加する", class: "btn btn-outline-primary"  %>
         </div>
-    <% end %>
+        
+      <% end %>
   </div>
  </div>

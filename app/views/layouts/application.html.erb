@@ -13,35 +13,25 @@
   </head>
 
   <body>
-      <header>
-        <div class="wrapper">
-          <!-- ヘッダータイトル -->
-          <div class="header_title">
-            <h1><%= link_to "Re: illustart", root_path%></h1>
-          </div>
-
-            <% if user_signed_in? %>
-            <% end %>
-
-            <!-- ヘッダーメニュー -->
-            <nav>
-              <ul class="menu_list">
-                <% if user_signed_in?  %>
-                  <li><%= link_to "#{current_user.nickname}さんのマイページ",user_path(current_user.id) %></li>                 
-                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
-                  <li><%= link_to "イラスト投稿", new_post_path%></li>
-  
-                <%else  %>
-                  <li><%= link_to "ログイン", new_user_session_path%></li>
-                  <li><%= link_to "新規登録", new_user_registration_path%></li>
-                <% end %>  
-              </ul>
-            </nav>
-        </div>    
+    <header>
+      <div class="wrapper">
+        <div class="header_title">
+          <h1><%= link_to "Re: illustart", root_path%></h1>
+        </div>
+        <nav>
+          <ul class="menu_list">
+            <% if user_signed_in?  %>
+              <li><%= link_to "#{current_user.nickname}さんのマイページ",user_path(current_user.id) %></li>                 
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+              <li><%= link_to "イラスト投稿", new_post_path%></li>
+            <%else  %>
+              <li><%= link_to "ログイン", new_user_session_path%></li>
+              <li><%= link_to "新規登録", new_user_registration_path%></li>
+            <% end %>  
+          </ul>
+        </nav>
+      </div>    
     </header>
-    </div>
-
-
 
     <%= yield %>
 
