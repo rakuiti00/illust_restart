@@ -16,6 +16,9 @@
         総いいね数が一定数貯まると、自動的にこのサイトからは卒業する仕組みになっています。<br>
         ※神絵師は即卒業することになるので、登録してもあまり意味がないと思います。
         </p>
+        <p>
+        日々の練習やアウトプットに使っていただけると幸いです。
+        </p>
       </div>  
 
       <div class="main_menu">
@@ -59,7 +62,7 @@
                 <%= image_tag post.image %><br>
                 <%= post.title %><br>
               <% end %>
-              <%= link_to post.user.nickname , user_path(post.user.id) %><br>
+              <%= link_to post.user.nickname , user_path(post.user.id), id: "user_link" %><br>
               <% if post.advice_flag %> 
                 <span>アドバイス・指摘等お願いします</span><br>
               <% end  %>
@@ -90,15 +93,6 @@
 
   <%# CSSアニメーション実験 %>
   <ul class="sakura">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
     <li></li>
     <li></li>
     <li></li>

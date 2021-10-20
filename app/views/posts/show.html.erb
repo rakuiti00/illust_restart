@@ -26,7 +26,7 @@
         <div class="show_data">
           <span>イラストの内容・補足</span>
           <div  class="show__userdata">
-            <%= @post.description %>
+            <%= simple_format(@post.description) %>
           </div>
        </div>
 
@@ -109,8 +109,9 @@
             <%= f.text_area :advice, id:"advice" %>
           </div>
       <% end %>
+
       <div class="actions">
-            <%= f.submit "送信する", class:"btn btn-outline-primary"  %>
+            <%= f.submit "送信する", class:"btn btn-outline-primary comment_btn"  %>
       </div>
     <% end %>
   </div> 
@@ -133,7 +134,7 @@
             </div>
             <% if comment.post.advice_flag == true %>
              <div class="comment_box">
-              <div class="comment_label">アドバイス</div>
+              <div class="comment_label">アドバイスや気になる点</div>
               <div><%= simple_format(comment.advice) %></div>
             </div>
             <% end %>

@@ -1,6 +1,6 @@
 
 <div>
-  <h2 class="alert alert alert-light">新規投稿画面</h2>
+  <h2 class="alert alert alert-light">イラスト投稿画面</h2>
 </div>
 
 <!-- 2カラム部分 -->
@@ -21,21 +21,21 @@
     <%= render 'shared/error_messages', model: f.object %>
 
       <div class="field">
-        <%= f.label :title, "タイトル(必須)" %><br />
-        <%= f.text_field :title, id:"post_title" %>
+        <%= f.label :title, "タイトル" %><span class="badge require">必須</span><br />
+        <%= f.text_field :title, id:"post_title",class:"form-control " %>
       </div>
 
       <div class="field">
-        <%= f.label :description, "イラストの説明・補足(任意)" %><br />
-        <%= f.text_area :description,  id:"post_description" %>
+        <%= f.label :description, "イラストの説明・補足" %><br />
+        <%= f.text_area :description , class:"form-control post_description" %>
       </div>
 
       <div class="field">
           <%= f.label :advice_flag, "コメントによる他のユーザーからのアドバイスの有無" %><br />
           <div class="radio_area">
-            <%= f.radio_button :advice_flag, 0 %>
+            <%= f.radio_button :advice_flag, 1 %>
             <%= f.label :advice_flag, "アドバイスや指摘が欲しい" %><br />
-            <%= f.radio_button :advice_flag, 1 , checked: true %>
+            <%= f.radio_button :advice_flag, 0 , checked: true %>
             <%= f.label :advice_flag, "アドバイスや指摘はいらない" %><br />
            <span class="check_point">※絵にはそれぞれの描き方があるため、<br />その人のアドバイスが本当に有効かはわかりません。</span>
           </div>
@@ -45,9 +45,9 @@
         <div class="field">
               <%= f.label :traning_flag, "イラスト練習お題に関する投稿" %><br />
               <div class="radio_area">
-                <%= f.radio_button :traning_flag, 0, checked: true%>
+                <%= f.radio_button :traning_flag, 1, checked: true%>
                 <%= f.label :traning_flag, "通常のイラスト" %><br />
-                <%= f.radio_button :traning_flag, 1 %>
+                <%= f.radio_button :traning_flag, 0 %>
                 <%= f.label :traning_flag, "お題用イラスト" %><br />
               </div>
           </div>
@@ -65,7 +65,7 @@
         
  
       <div class="field">
-        <%= f.label :imaga, "投稿するイラストの画像(必須)" %><br />
+        <%= f.label :imaga, "投稿するイラスト" %><span class="badge require">必須</span><br />
         <%= f.file_field :image, id:"post_image" %>
       </div>
 
@@ -74,7 +74,6 @@
       <div class="actions">
         <%= f.submit "投稿する", class: "btn btn-outline-primary"  %>
       </div>
-
 
       <%= f.hidden_field :traning_id, :value => @traning_id %>
    <% end %>
