@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:destroy]
+  before_action :set_post,only:[:edit,:show,:update,:destroy,:move_to_index]
   before_action :move_to_index, only:[:edit]
   before_action :lgtm, only:[:new,:create,:edit,:update]
 
@@ -15,7 +16,6 @@ class PostsController < ApplicationController
     else
       @traning_id = 1
     end
-
   end
 
   def create
@@ -29,18 +29,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @like_count = Like.where(post_id: params[:id]).count
     @comment = Comment.new
     @comments = @post.comments.includes(:user).page(params[:page]).per(3)
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
 
     if @post.update(post_params)
       redirect_to post_path(@post.id)
@@ -52,45 +49,41 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
 
-    if post.user_id = current_user.id 
+    if post.user_id == current_user.id 
        post.destroy
-      redirect_to root_path  
+       redirect_to root_path  
     end
   end
 
   private
+  
   def post_params
     params.require(:post).permit(:title, :description,:advice_flag,:traning_flag,:image,:traning_id).merge(user_id: current_user.id)
   end
 
   def move_to_index
-    @post = Post.find(params[:id])
-
     if !(user_signed_in? && current_user.id == @post.user.id)
       redirect_to root_path
     end
   end
 
-  def lgtm
-    # lgtmテスト----------------------------------------------------------
-    @user = User.find(current_user.id)
-    # ユーザーに関する投稿を全て取得
-    @posts = @user.posts
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    #いいね数カウント用
+  def lgtm
+    @user = User.find(current_user.id)
+    @posts = @user.posts
     @likes_count = 0
-    # そのユーザーに関する投稿情報を１つずつ確認し、いいねテーブルにデータ
-    # その投稿データがあればカウントを＋１して合計値を取得
+
+    # そのユーザーに関するLikeテーブルの投稿データのカウントで合計値を取得
     @posts.each do |post|
       @likes_count += post.likes.count
     end
 
-    # (テスト用) 総いいね数が一定ライン(一旦100)を越えたら卒業ページに飛ばす
-    # @likes_count = 100
+    # (テスト用)@likes_count = 100
     if @likes_count >=  100
       render template: "users/lgtm"
     end
-    #--------------------------------------------------------------------
   end
-
 end

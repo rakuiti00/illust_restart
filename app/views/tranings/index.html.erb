@@ -5,48 +5,47 @@
    <%= @traning.theme_text %>
 </div>
 <h4>※画像はあくまでイラスト練習のための参考資料であり引用です。</h4>
+
 <div class="wrapper traning_image ">
   <%# ActiveStrageテーブルに画像が存在しない場合は表示しない %>
   <% if ActiveStorage::Attachment.exists?(record_id: @traning.id,record_type: "Traning")%>
-       <%= image_tag @traning.image %>
+    <%= image_tag @traning.image %>
   <% else %>
-    <%# ダミー画像 %>
-
-      <img src="/images/bg3.jpg" alt="">
-      <h4 class="wrapper">参考画像なし</h4>
+    <img src="/images/bg3.jpg" alt="">
+    <h4 class="wrapper">参考画像なし</h4>
   <% end %>
-
 </div>
-  <div class="wrapper traning_menu" >
-        <div class="card-body traning_add">
-            <%= link_to new_traning_path do%>
-              <div>
-                <h4 class="card-title">練習用のランダムお題を追加</h4><br>
-                <p class="card-text">お題の追加はログインしなくても可能です。<br>
-                   気が向いた時にでも気軽に追加していただけると助かります。
-                </p>
-                 <p>
-                  アイコン作成等の依頼などにも使ってもらえれば描いてくれる人がいるかもしれません。<br>
-                  (無償なので描くかどうかはその人次第にはなりますが。。)
-                </p>
-              </div>
-            <%end%>
-        </div> 
-        <div class="card-body traning_post">
-            <%= link_to new_post_path(traning_id: @traning.id) do%>
-              <div>
-                <h4 class="card-title">練習用のランダムお題で絵を投稿</h4><br>
-                <p class="card-text">ランダム練習用のお題でイラストを投稿する際は<br>
-                   こちらから投稿をお願いします。<br>
-                </p>
-                <p>   
-                   日々のアウトプットや依頼の練習にでも使っていただけると<br>
-                   幸いです。
-                </p>
-              </div>
-            <%end%>
-        </div> 
-  </div>
+
+<div class="wrapper traning_menu" >
+  <div class="card-body traning_add">
+      <%= link_to new_traning_path do%>
+        <div>
+          <h4 class="card-title">練習用のランダムお題を追加</h4><br>
+          <p class="card-text">お題の追加はログインしなくても可能です。<br>
+              気が向いた時にでも気軽に追加していただけると助かります。
+          </p>
+          <p>
+            アイコン作成等の依頼などにも使ってもらえれば描いてくれる人がいるかもしれません。<br>
+            (無償なので描くかどうかはその人次第にはなりますが。。)
+          </p>
+        </div>
+      <%end%>
+  </div> 
+  <div class="card-body traning_post">
+      <%= link_to new_post_path(traning_id: @traning.id) do%>
+        <div>
+          <h4 class="card-title">練習用のランダムお題で絵を投稿</h4><br>
+          <p class="card-text">ランダム練習用のお題でイラストを投稿する際は<br>
+            こちらから投稿をお願いします。<br>
+          </p>
+          <p>   
+            日々のアウトプットや依頼の練習にでも使っていただけると<br>
+            幸いです。
+          </p>
+        </div>
+      <%end%>
+  </div> 
+</div>
 
 <h4 class="wrapper"><%="練習用ランダムお題「#{@traning.theme_text}」のイラスト一覧"%></h4>
 <!-- グリッド部分 -->
@@ -54,35 +53,34 @@
 
   <div class="items">
     <% @posts.each do |post| %> 
-          <div class='item'>
-            <%= link_to post_path(post.id) do %>
-              <%= image_tag post.image %><br>
-              <%= post.title %><br>
-              <% if post.advice_flag %> 
-                <span>アドバイス・指摘等お願いします</span><br>
-              <% end  %>
-            <% end %>
-            <%= link_to post.user.nickname, user_path(post.user_id) %><br>
-            
-          
-            <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
-            <% if user_signed_in? %>
-              <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
-                  <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
-                    <span class="fa fa-heart like_btn_on"></span>
-                    <%= Like.where(post_id: post.id).count %>
-                  <% end %> 
-              <% else %>
-                 <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
-                  <span class="fa fa-heart like_btn_off"></span> 
-                   <%= Like.where(post_id: post.id).count %>
-                  <% end %>
+      <div class='item'>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.image %><br>
+          <%= post.title %><br>
+          <% if post.advice_flag %> 
+            <span>アドバイス・指摘等お願いします</span><br>
+          <% end  %>
+        <% end %>
+        <%= link_to post.user.nickname, user_path(post.user_id) %><br>
+
+        <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+        <% if user_signed_in? %>
+          <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+              <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
+                <span class="fa fa-heart like_btn_on"></span>
+                <%= Like.where(post_id: post.id).count %>
+              <% end %> 
+          <% else %>
+              <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
+              <span class="fa fa-heart like_btn_off"></span> 
+                <%= Like.where(post_id: post.id).count %>
               <% end %>
-             <%# ログインしていない場合はいいねの総数のみを表示  %>
-            <% else  %>
-                  <span class="fa fa-heart like_btn_on"></span> 
-                  <%= Like.where(post_id: post.id).count %> 
-            <% end %>
-          </div>
-    <% end  %>
+          <% end %>
+          <%# ログインしていない場合はいいねの総数のみを表示  %>
+        <% else  %>
+              <span class="fa fa-heart like_btn_on"></span> 
+              <%= Like.where(post_id: post.id).count %> 
+        <% end %>
+      </div>
+    <% end %>
   </div>

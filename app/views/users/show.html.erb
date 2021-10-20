@@ -1,38 +1,36 @@
 
-<!-- 2カラム部分 -->
 <div class="user_contents wrapper">
 
   <div class="wrapper user_left">
     <div>
       <% if @user.image.attached? %>
-          <%= image_tag @user.image ,class:"user_image"%>        
+        <%= image_tag @user.image ,class:"user_image"%>        
       <% else  %>
-        <%# アバター画像を登録していない場合、デフォルト画像を表示 %>
         <img class="user_image" src="/images/dummy.jpg" alt="">
       <% end %>
     </div>
   </div>
+  
   <ul class="wrapper user_right">
       <li class="user_data user_data_name"><%= @user.nickname %>
       <span class="user_data_postcount"><%= " 投稿数 : #{@like_posts.count}件" %></span></li>
-      <li class="user_data user_data_link"><span>Twitter:　　　　</span><%= link_to @user.twitter_url , @user.twitter_url%></li>
-      <li class="user_data user_data_link"><span>Pixiv:　　　　　 </span><%= link_to @user.pixiv_url , @user.pixiv_url%></li>
-      <li class="user_data user_data_link"><span>その他連絡先:　  </span><%= link_to @user.another_url , @user.another_url%></li>
+      <li class="user_data user_data_link"><span class="user_twitter_url">Twitter:</span><%= link_to @user.twitter_url , @user.twitter_url%></li>
+      <li class="user_data user_data_link"><span class="user_pixiv_url">Pixiv:</span><%= link_to @user.pixiv_url , @user.pixiv_url%></li>
+      <li class="user_data user_data_link"><span class="user_another_url">その他連絡先:</span><%= link_to @user.another_url , @user.another_url%></li>
       <li class="user_data user_like_count"><%= "総いいね数 : #{@likes_count}/100で卒業!" %></li>
       <li class="user_data user_profile_title">プロフィール:</li>
       <li class="user_data user_profile" ><%= simple_format(@user.profile) %></li>
       <% if user_signed_in? && @user.id == current_user.id %>
         <li class="user_data"><span class="user_update"><%= link_to "編集・削除する" , edit_user_registration_path(@user.id) %></li>        
       <% end %>
-
-  </ul>
+   </ul>
 </div>
 
 <h4 class ="alert alert-light">投稿イラストの一覧</h4>
 <div class="wrapper grid"> 
- <div class="items">
-    <% @posts.each do |post| %> 
-          <div class='item'>
+  <div class="items">
+      <% @posts.each do |post| %> 
+        <div class='item'>
           <%= link_to post_path(post.id) do %>
             <%= image_tag post.image %><br>
             <%= post.title %><br>
@@ -40,28 +38,28 @@
             <% if post.advice_flag %> 
               <span>アドバイス・指摘等お願いします</span><br>
             <% end  %>
-           <% end %>
-          
-            <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
-              <% if user_signed_in? %>
-                <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
-                   <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
-                    <span class="fa fa-heart like_btn_on"></span>
-                    <%= Like.where(post_id: post.id).count %> 
-                   <% end %>
-                <% else %>
-                   <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
-                    <span class="fa fa-heart like_btn_off"></span> 
-                     <%= Like.where(post_id: post.id).count %>
-                    <% end %> 
+          <% end %>
+
+          <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
+            <% if user_signed_in? %>
+              <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+                <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
+                  <span class="fa fa-heart like_btn_on"></span>
+                  <%= Like.where(post_id: post.id).count %> 
                 <% end %>
-              <%# ログインしていない場合はいいねの総数のみを表示  %>
-              <% else  %>
-                    <span class="fa fa-heart like_btn_on"></span> 
-                    <%= Like.where(post_id: post.id).count %> 
+              <% else %>
+                <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
+                  <span class="fa fa-heart like_btn_off"></span> 
+                  <%= Like.where(post_id: post.id).count %>
+                <% end %> 
               <% end %>
+            <%# ログインしていない場合はいいねの総数のみを表示  %>
+            <% else  %>
+              <span class="fa fa-heart like_btn_on"></span> 
+              <%= Like.where(post_id: post.id).count %> 
+            <% end %>
         </div>
-    <% end  %>
+      <% end  %>
   </div>
   <div class="wrapper page_nate"><%= paginate @posts %></div>
 </div>

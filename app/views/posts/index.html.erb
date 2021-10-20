@@ -1,6 +1,6 @@
 
 <div id="menu">
-   <div class="wrapper menu_content">
+  <div class="wrapper menu_content">
       <h2 class="main_title">Re: illustart</h2>
       <div class="main_description" >
         <p>
@@ -19,19 +19,19 @@
         <p>
         日々の練習やアウトプットに使っていただけると幸いです。
         </p>
-      </div>  
+      </div>
 
       <div class="main_menu">
         <div class="card-body post_link">
-            <%= link_to new_post_path do%>
-              <div>
-                <h3 class="card-title">描いたイラストを投稿する</h3><br>
-                <p class="card-text">絵は練習だけだと上手くなっているのかわかりずらいです。<br>
-                  日々の練習の後にアウトプットとしてイラストを描くと、</p>
-                <p class="card-text">後々自分の成長過程がわかり<br>
-                  モチベーションややる気につながっていきます。</p>
-              </div>
-            <%end%>
+          <%= link_to new_post_path do%>
+            <div>
+              <h3 class="card-title">描いたイラストを投稿する</h3><br>
+              <p class="card-text">絵は練習だけだと上手くなっているのかわかりずらいです。<br>
+                日々の練習の後にアウトプットとしてイラストを描くと、</p>
+              <p class="card-text">後々自分の成長過程がわかり<br>
+                モチベーションややる気につながっていきます。</p>
+            </div>
+          <%end%>
         </div> 
 
         <div class="card-body traning_link">
@@ -47,59 +47,60 @@
                  気が向いたら気軽に追加していただけると助かります。</p>
               </div>
             <%end%>
-        </div> 
+          </div> 
       </div>
-
-   </div>
+    </div>
 
   <h4>投稿イラストの一覧(新着・更新順)</h4>
-  <!-- グリッド部分 -->
+  
   <div class="wrapper grid"> 
     <div class="items">
       <% @posts.each do |post| %> 
-            <div class='item'>
-              <%= link_to post_path(post.id) do %>
-                <%= image_tag post.image %><br>
-                <%= post.title %><br>
-              <% end %>
-              <%= link_to post.user.nickname , user_path(post.user.id), id: "user_link" %><br>
-              <% if post.advice_flag %> 
-                <span>アドバイス・指摘等お願いします</span><br>
-              <% end  %>
-              <%#条件に一致した場合、そのデータはLikeテーブルに存在するのでいいねを表示する%>
-              <% if user_signed_in? %>
-                <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
-                   <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
-                    <span class="fa fa-heart like_btn_on"></span>
-                    <%= Like.where(post_id: post.id).count %> 
-                   <% end %>
-                <% else %>
-                   <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
-                    <span class="fa fa-heart like_btn_off"></span> 
-                     <%= Like.where(post_id: post.id).count %>
-                    <% end %> 
+          <div class='item'>
+            <%= link_to post_path(post.id) do %>
+              <%= image_tag post.image %><br>
+              <%= post.title %><br>
+            <% end %>
+            
+            <%= link_to post.user.nickname , user_path(post.user.id), id: "user_link" %><br>
+            
+            <% if post.advice_flag %> 
+              <span>アドバイス・指摘等お願いします</span><br>
+            <% end  %>
+            
+            <% if user_signed_in? %>
+              <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+                <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
+                  <span class="fa fa-heart like_btn_on"></span>
+                  <%= Like.where(post_id: post.id).count %> 
                 <% end %>
-              <%# ログインしていない場合はいいねの総数のみを表示  %>
-              <% else  %>
-                    <span class="fa fa-heart like_btn_on"></span> 
-                    <%= Like.where(post_id: post.id).count %> 
+              <% else %>
+                <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
+                  <span class="fa fa-heart like_btn_off"></span> 
+                  <%= Like.where(post_id: post.id).count %>
+                <% end %> 
               <% end %>
-            </div>
+            <%# ログインしていない場合はいいねの総数のみを表示  %>
+            <% else  %>
+              <span class="fa fa-heart like_btn_on"></span> 
+              <%= Like.where(post_id: post.id).count %> 
+            <% end %>
+          </div>
        <% end  %>
     </div>
   </div>
   <div class="wrapper page_nate"><%= paginate @posts %></div>
 </div>
 
-  <%# CSSアニメーション実験 %>
-  <ul class="sakura">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+<%# CSSアニメーション %>
+<ul class="sakura">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>

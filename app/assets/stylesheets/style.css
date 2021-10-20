@@ -7,13 +7,12 @@
 /* 共通部分 */
 html{
   font-size: 100%;
-  
 }
 
 body{
   font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
   line-height: 1.7;
-  color:#333;    
+  color:#333;
 }
 
 a{
@@ -24,24 +23,20 @@ a{
 a:hover{
   text-decoration: none;
 }
-  
 
-/* 親要素より画像が大きくならないようにする。 */
 img {
   max-width: 100%;
 }
 
 .wrapper{
   max-width: 1200px;
-  /* ボックスの中央寄せ */
   margin: 0 auto;
   /* スマホ向け余白 */
   padding: 0 3%; 
   /* border: 1px solid red; */
 }
 
-
-h2,h3,h4{
+h2,h3,h4,h5{
   text-align: center;
 }
 
@@ -66,24 +61,19 @@ li{
 }
 
 /* -------------------------------------------- */
-
 /* 確認用 */
 /* p{
   border: 1px solid #333;
 }
-
 h1{
   border: 1px solid orange;
 }
-
 h2{
   border: 1px solid blue;
 }
-
 a{
   border: 1px solid green;
 }
-
 input{
   border: 1px solid peru;
 } */
@@ -99,7 +89,6 @@ header .wrapper{
   font-size: 1rem;
 }
 
-/* ヘッダータイトル */
 .header_title{
   margin-top: 10px;
   width: 250px;
@@ -415,6 +404,16 @@ width: 30%;
   border:1px solid #999;
   padding:5px;
 }
+.user_twitter_url{
+  margin-right: 50px;
+}
+.user_pixiv_url{
+  margin-right: 70px;
+}
+.user_another_url{
+  margin-right: 10px;
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* マイページ編集画面 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -583,6 +582,9 @@ textarea{
   color:#fff;
   margin-left: 5px;
   background-color:rgba(25, 148, 255, 0.83);
+}
+
+#test_bs{
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
