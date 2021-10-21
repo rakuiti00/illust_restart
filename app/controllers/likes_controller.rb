@@ -38,6 +38,8 @@ class LikesController < ApplicationController
       redirect_to(user_path(@post.user_id))
     elsif path[:controller] == "tranings" && path[:action] == "index"
       redirect_to(tranings_path)
+    elsif path[:controller] == "posts" && path[:action] == "search"
+      redirect_to(search_posts_path)
     else
       redirect_to(root_path)
     end    

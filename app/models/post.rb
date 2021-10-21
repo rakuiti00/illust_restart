@@ -8,4 +8,12 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :traning
+
+  def self.search(search)
+    if search != ""
+      Post.joins(:user).where(['users.nickname LIKE(?) OR title LIKE(?)', "%#{search}%", "%#{search}%"])
+    else
+      Post.includes(:user).order("updated_at DESC")
+    end
+  end
 end

@@ -55,6 +55,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(8)
+  end
+
   private
   
   def post_params
