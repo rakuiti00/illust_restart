@@ -615,23 +615,27 @@ textarea{
     font-size: 2rem;
   }
 
-  /* NEWS */
-  .news_contents{
+  .items{
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .new_contents{
     flex-direction: column;    
   }
-  .news_left{
+  .new_left{
     width: 100%;
   }
   
-  .news_right{
+  .new_right{
     width: 100%;
   }
 
-  #news .wrapper{
+  #new .wrapper{
     margin-bottom: 0px;
   }
 
-  #news .header_title{
+  #new .header_title{
     margin-bottom: 10px;
   }
 

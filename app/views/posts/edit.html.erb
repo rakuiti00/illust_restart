@@ -1,10 +1,10 @@
 <div>
-  <h2 class="wrapper">投稿内容編集画面</h2>
+  <h2 class="alert alert alert-light">投稿イラストの編集</h2>
 </div>
 
-<div class="news_contents wrapper">
+<div class="new_contents wrapper">
   
-  <div class="news_left">
+  <div class="new_left">
    <div id="image_preview">
       <div>
         <%= image_tag @post.image %>
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div class="news_right wrapper">
+  <div class="new_right wrapper">
 
    <%= form_with model: @post, local: true do |f|%>
 
