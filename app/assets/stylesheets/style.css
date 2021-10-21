@@ -15,14 +15,10 @@ body{
   color:#333;
 }
 
-a{
+a,a:hover{
   color:#333;
   text-decoration: none; /* リンクの下線削除 */
  }
-
-a:hover{
-  text-decoration: none;
-}
 
 img {
   max-width: 100%;
@@ -61,26 +57,8 @@ li{
   list-style: none;
 }
 
-/* -------------------------------------------- */
-/* 確認用 */
-/* p{
-  border: 1px solid #333;
-}
-h1{
-  border: 1px solid orange;
-}
-h2{
-  border: 1px solid blue;
-}
-a{
-  border: 1px solid green;
-}
-input{
-  border: 1px solid peru;
-} */
-
 /*************************************************************************************************/
-/*インデックスページ 
+/*ヘッダー
 /*************************************************************************************************/
 header .wrapper{
   display: flex;
@@ -105,7 +83,6 @@ header .wrapper{
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-   /* border: orange 2px solid;  */
 }
 
 .menu_list li{
@@ -119,7 +96,9 @@ header .wrapper{
   margin-bottom: 30px;
   font-family: 'Philosopher', serif;
 }
-
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/*インデックスページ
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .main_description{
   font-size: 1.05rem;
   text-align: left;
@@ -130,14 +109,11 @@ header .wrapper{
 .main_description p{
   margin-bottom: 25px;
 }
-
-
 .main_menu{
   display: flex;
   justify-content: space-between;
 }
 
-/* 投稿ページへのリンクボタン */
 .post_link{
   width: 200px;
   height: 250px;
@@ -147,8 +123,6 @@ header .wrapper{
   margin-right: 50px; 
 }
 
-
-/* 練習用ページへのリンクボタン */
 .traning_link{
   width: 200px;
   height: 250px;
@@ -162,7 +136,7 @@ header .wrapper{
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 投稿画面(2カラム画面は流用する)*/
+/* 新規投稿画面*/
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .new_contents{
   display: flex;
@@ -172,23 +146,21 @@ header .wrapper{
 }
 .new_left{
 width: 48%;
-/* border:red 1px solid; */
 }
+
 .new_right{
 width: 48%;
-/* border: blue 1px solid; */
 }
+
 #post_title{
   width:100%; 
 }
-
-
-/* 注意書きなど */
+/* 注意書き */
 .check_point{
   color:#FF0066;
 }
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 詳細表示画面(2カラム画面は流用したい)*/
+/* 詳細表示画面/
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .show_contents{
   display: flex;
@@ -196,12 +168,13 @@ width: 48%;
   padding:10px 0;
   margin-bottom: 20px;
 }
+
 .show_left{
 width:75%;
 border: 1px solid #ccc;
-/* border:red 1px solid; */
 margin: 0 auto;
 }
+
 .show_image image{
   max-width: 100%;
   object-fit: contain;
@@ -209,14 +182,14 @@ margin: 0 auto;
 
 .show_right{
 width: 30%;
-/* border: blue 1px solid; */
 }
+
 .show_data{
   margin-bottom: 20px;
 }
+
 .show__userdata{
   font-size: 1.1rem;
-  /* font-family: 'Philosopher', serif; */
 }
 
 .user_link a{
@@ -230,6 +203,7 @@ width: 30%;
 .show__manage{
   border: 1px solid #ccc;
 }
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* コメント欄 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -243,10 +217,7 @@ width: 30%;
   margin: 0 auto;
 }
 
-
 .comment_label{
-  /* border: 1px solid #ccc;
-  border-bottom: none; */
   font-weight: bold;
 }
 .comments_lists{
@@ -267,9 +238,8 @@ width: 30%;
   margin: 25px auto;
 }
 
-
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* MENU */
+/* メインコンテンツ */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #menu{
   background-image: url("/images/bg3.jpg");
@@ -310,12 +280,9 @@ width: 30%;
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 新規登録画面
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-.sign_up{
-  margin-top: 15px;
-}
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 新規登録画面・ログイン画面・LGTM画面の背景 */
+/* 新規登録画面・ログイン画面・LGTM画面共通の背景 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #sign_up,#sign_in,#user_edit,#traning_add,.lgtm{
   background-image: url("/images/bg3.jpg");
@@ -326,9 +293,8 @@ width: 30%;
   min-height: 100vh;
 }
 
-
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* 微調整 */
+/* 入力フォーム画面の調整 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .field{
   margin-bottom: 20px;
@@ -418,7 +384,7 @@ width: 30%;
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* マイページ編集画面 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-＃user_edit .field{
+#user_edit .field{
   margin-bottom: 30px;  
 }
 
@@ -440,10 +406,8 @@ width: 30%;
 
 }
 
-
-
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* LGTM */
+/* LGTM(卒業)画面 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .lgtm{
   font-size: 1.15rem;
@@ -463,14 +427,9 @@ width: 30%;
   color: #1a0dab;
 }
 
-
-
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* フォーム入力欄 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* #comment_text{
-  width: 80%;
-} */
 
 input[type="text"],input[type="email"]{
   width: 50%;
@@ -492,7 +451,6 @@ textarea{
 .profile{
   width: 50%;
 }
-
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 練習用お題ページ */
@@ -522,13 +480,9 @@ textarea{
   height: 250px;
   color:#333;
   margin-right: 50px; 
-  /* background-image: url("/images/bg3.jpg"); 
-  background-size: cover;
-  background-blend-mode:lighten; */
   background-color:rgba(166, 125, 255, 0.07);
   border:1px solid rgba(166, 125, 255, 0.07);
 }
-
 
 /* 練習用お題イラストの投稿 */
 .traning_post{
@@ -536,7 +490,7 @@ textarea{
   height: 250px;
   background-color:rgba(5, 241, 229,0.07);
   color:#333;
-    border:1px solid rgba(166, 125, 255, 0.07);
+  border:1px solid rgba(166, 125, 255, 0.07);
 }
 
 .traning_add_page .field{
@@ -545,8 +499,6 @@ textarea{
 .traning_image_preview{
   margin-bottom: 40px;
 }
-
-
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* 練習用お題追加ページ */
@@ -580,11 +532,7 @@ textarea{
   font-size: 30px;
   width: 400px;
 }
-/* .bg-primary {
-  color: #fff;
-  
-  
-} */
+
 .require{
   font-size: 12px;
   font-weight: normal;
@@ -599,18 +547,32 @@ textarea{
 .new_left{
   display:flex;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
-@media (max-width: 600px)  {
+@media (max-width: 600px){
 
   header .wrapper{
     flex-direction: column;
+  }
+
+  .main_menu{
+    flex-direction: column;
+  }
+
+  .show_contents{
+    flex-direction: column;
+  }
+  .user_contents{
+    flex-direction: column;
+  }
+  .user_left{
+    width: 90%;
+    margin: 0 auto;
   }
 
   .header_title{
@@ -621,10 +583,6 @@ textarea{
     font-size: 2rem;
   }
 
-  .items{
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
 
   .new_contents{
     flex-direction: column;    
@@ -644,6 +602,17 @@ textarea{
   #new .header_title{
     margin-bottom: 10px;
   }
+
+  .items{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .item{
+    width: 90%;
+    margin: 0 auto;
+  }
+
 
 }
 
