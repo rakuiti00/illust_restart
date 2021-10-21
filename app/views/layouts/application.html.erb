@@ -14,10 +14,17 @@
 
   <body>
     <header>
-      <div class="wrapper">
+      <div class="wrapper header">
         <div class="header_title">
           <h1><%= link_to "Re: illustart", root_path%></h1>
         </div>
+
+        <%# 検索フォーム %>
+        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search_form ") do |form| %>
+          <%= form.text_field :keyword, placeholder: "ユーザ・イラストを検索", class: "search_input" %>
+          <%= form.submit "検索", class: "search_btn btn btn-light" %>
+        <% end %>
+
         <nav>
           <ul class="menu_list">
             <% if user_signed_in?  %>
@@ -30,7 +37,9 @@
             <% end %>  
           </ul>
         </nav>
-      </div>    
+      </div> 
+
+
     </header>
 
     <%= yield %>
