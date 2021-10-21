@@ -1,0 +1,30 @@
+<div class='item'>
+  <%= link_to post_path(post.id) do %>
+    <%= image_tag post.image %><br>
+    <%= post.title %><br>
+  <% end %>
+  
+  <%= link_to post.user.nickname , user_path(post.user.id), id: "user_link" %><br>
+  
+  <% if post.advice_flag %> 
+    <span>アドバイス・指摘等お願いします</span><br>
+  <% end  %>
+  
+  <% if user_signed_in? %>
+    <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
+      <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
+        <span class="fa fa-heart like_btn_on"></span>
+        <%= Like.where(post_id: post.id).count %> 
+      <% end %>
+    <% else %>
+      <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
+        <span class="fa fa-heart like_btn_off"></span> 
+        <%= Like.where(post_id: post.id).count %>
+      <% end %> 
+    <% end %>
+  <%# ログインしていない場合はいいねの総数のみを表示  %>
+  <% else  %>
+    <span class="fa fa-heart like_btn_on"></span> 
+    <%= Like.where(post_id: post.id).count %> 
+  <% end %>
+</div>
