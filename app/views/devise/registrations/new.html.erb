@@ -22,7 +22,7 @@
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %>文字以上、英数字を混合で設定してください）</em>
       <% end %><span class="badge require">必須</span><br />
       <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
     </div>

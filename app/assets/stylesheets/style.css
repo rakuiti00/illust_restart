@@ -549,6 +549,21 @@ textarea{
   justify-content: center;
   align-items: center;  
 }
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* DEVISE日本語化 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+#error_explanation{
+  color:rgba(255, 0, 93, 0.74);
+}
+.login-flash-message{
+  color:rgba(255, 0, 93, 0.74);
+}
+
+.error-alert{
+  color:rgba(255, 0, 93, 0.74);
+}
+
+
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* レスポンシブ対応 */

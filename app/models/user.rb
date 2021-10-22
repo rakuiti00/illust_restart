@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は半角英数字と数字を混合してください" }
 
   URL_REGEX = /https?:\/\/[\w\/:%#\$&\?\(\)~\.=\+\-]+|\A\z/
-  with_options format: { with: URL_REGEX, message: '正しいURLを入力してください' } do
+  with_options format: { with: URL_REGEX, message: 'はURLを入力してください' } do
     validates :twitter_url
     validates :pixiv_url
     validates :another_url
