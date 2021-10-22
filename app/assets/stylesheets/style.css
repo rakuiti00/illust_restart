@@ -197,11 +197,13 @@ width: 30%;
 }
 
 .show__manage_box{
-  margin-top: 10px;
+  margin: 15px 0;
 }
 
 .show__manage{
+  font-size: 1.1rem;
   border: 1px solid #ccc;
+  margin: 15px 10px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */

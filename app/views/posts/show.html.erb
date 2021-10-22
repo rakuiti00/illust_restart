@@ -73,6 +73,8 @@
       <div class="show__manage_box">
       <span class="show__manage">
         <%= link_to "編集する", edit_post_path(@post.id) %>
+      </span>
+      <span class="show__manage">
         <%= link_to "削除する", post_path(@post.id), method: :delete%>
       </span>
       </div>
