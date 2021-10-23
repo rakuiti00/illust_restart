@@ -197,11 +197,13 @@ width: 30%;
 }
 
 .show__manage_box{
-  margin-top: 10px;
+  margin: 15px 0;
 }
 
 .show__manage{
+  font-size: 1.1rem;
   border: 1px solid #ccc;
+  margin: 15px 10px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
@@ -575,19 +577,58 @@ textarea{
     flex-direction: column;
   }
 
+  .search_form {
+    display: flex;
+    width: 100%;
+    text-align: center;
+  }
+  .menu_list {
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .menu_list li{
+    font-size: 1rem;
+  }
+
   .main_menu{
     flex-direction: column;
+  }
+  .main_description{
+    font-size: 0.7rem;
+  }
+
+
+  .post_link{
+    width: 100%;
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+  }
+  .traning_link{
+    width: 100%;
+    font-size: 0.7rem;
   }
 
   .show_contents{
     flex-direction: column;
   }
+  .show_left{
+    width:100%
+  }
+  .show_right{
+    width: 100%;
+  }
+
   .user_contents{
     flex-direction: column;
   }
   .user_left{
     width: 90%;
     margin: 0 auto;
+  }
+  .user_data{
+    width: 100%;    
   }
 
   .header_title{
@@ -627,6 +668,67 @@ textarea{
     width: 90%;
     margin: 0 auto;
   }
+
+  #sign_up,#sign_in,#user_edit,#traning_add,.lgtm{
+    background-image: url("/images/bg3.jpg");
+    background-position: 70%;
+    background-size: cover;  
+    background-color:rgba(255,255,255,0.6);
+    background-blend-mode:lighten; 
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  #sign_in{
+    background-position: 80%;
+    background-size: cover;  
+  }
+
+
+  input[type="text"],input[type="email"]{
+    width: 80%;
+  }
+  
+  input[type="password"]{
+    width: 80%;
+  }
+  
+  textarea{
+    width: 80%;
+    height: 5rem;  
+  }
+
+  #menu{
+    background-image: url("/images/bg3.jpg");
+    background-color:rgba(255,255,255,0.6);
+    background-blend-mode:lighten; 
+    margin-bottom: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .traning_image{
+    width: 100%;
+  }
+ 
+  .traning_menu{
+    flex-direction: column;    
+  }
+  .traning_add{
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  .traning_post{
+    width: 100%;
+    height: auto;
+
+  }
+
+  .alert-light{
+    background:rgba(255,255,255,0.1);
+  }
+  
 
 
 }

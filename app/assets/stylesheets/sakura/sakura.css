@@ -249,3 +249,16 @@
              sway2 23s ease-in-out infinite alternate;
   animation-delay: 2s;
 }
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+/* レスポンシブ対応 */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+@media (max-width: 600px){
+  .sakura li{
+    display: none;
+    
+  }
+  
+
+}
