@@ -303,17 +303,24 @@ width: 30%;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-/* いいねボタン
+/* いいね/Twitterボタン
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .like_btn_on{
   color:#ff2395;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .like_btn_off{
   color:#8899a6;
-  font-size: 1.5rem;
+  font-size: 1.7em;
 }
+
+.twitter_btn{
+  color:#23a0ffba;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 /* マイページ
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
