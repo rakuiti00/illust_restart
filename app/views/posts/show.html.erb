@@ -69,6 +69,10 @@
       <%= Like.where(post_id: @post.id).count %> 
     <% end %>
 
+    <%= link_to("https://twitter.com/share?url=#{request.url}",title: 'Twitter', target: '_blank' ) do  %>  
+      <span class="fab fa-twitter twitter_btn"></span>
+    <% end  %>
+
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <div class="show__manage_box">
       <span class="show__manage">
