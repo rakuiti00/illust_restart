@@ -6,6 +6,11 @@ ja:
       post:
         title: タイトル
         image: 画像
+      traning:
+        theme_text: ランダム練習用お題
+      comment:
+        good_point: 良い点
+        text: コメント
   views:
     pagination:
         first: '最初'
