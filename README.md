@@ -1,22 +1,21 @@
 # アプリ名
----
-　
+
 # Re : illustart (リ：イラスタート)
----
-[![Image from Gyazo](https://i.gyazo.com/3779f72b4ba3cf81e54292d913aa035d.gif)](https://gyazo.com/3779f72b4ba3cf81e54292d913aa035d)
+![Image from Gyazo](https://i.gyazo.com/3779f72b4ba3cf81e54292d913aa035d.gif)
 
 # URL
 
 ### https://illust-restart.herokuapp.com
 
----
-　
+
+
+
+
 # アプリケーション概要
----
 
 練習はしているが、絵で１円も稼げない。結果が出せていない。
-一度描くのを挫折してしまったがもう一度描いてみようと思った。
 
+一度描くのを挫折してしまったがもう一度描いてみようと思った。
 そういった人たち(過去の自分)に向けて、もう一度絵を一緒に描きませんか？
 そしてどうせ描くならイラストを報酬という形で結果を残しませんか？
 という目的の練習・コミュニティアプリです。
