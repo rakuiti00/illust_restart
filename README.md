@@ -1,7 +1,8 @@
 # アプリ名
 
 # Re : illustart (リ：イラスタート)
-[![Image from Gyazo](https://i.gyazo.com/873feb29d8a9efa30de21efdb146cc21.gif)](https://gyazo.com/873feb29d8a9efa30de21efdb146cc21)
+[![Image from Gyazo](https://i.gyazo.com/b29fd2b049092f78e7c541b2211a352b.gif)](https://gyazo.com/b29fd2b049092f78e7c541b2211a352b)
+
 
 # URL
 
