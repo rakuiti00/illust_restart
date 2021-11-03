@@ -10,21 +10,9 @@
     <span>アドバイス・指摘等お願いします</span><br>
   <% end  %>
   
-  <% if user_signed_in? %>
-    <% if Like.find_by(user_id: current_user.id,post_id: post.id)  %>
-      <%= link_to(post_like_path(id: post.id,post_id: post.id),{method: :delete}) do %>
-        <span class="fa fa-heart like_btn_on"></span>
-        <%= Like.where(post_id: post.id).count %> 
-      <% end %>
-    <% else %>
-      <%= link_to(post_likes_path(id: post.id,post_id: post.id),{method: :post}) do %>
-        <span class="fa fa-heart like_btn_off"></span> 
-        <%= Like.where(post_id: post.id).count %>
-      <% end %> 
-    <% end %>
-  <%# ログインしていない場合はいいねの総数のみを表示  %>
-  <% else  %>
-    <span class="fa fa-heart like_btn_on"></span> 
-    <%= Like.where(post_id: post.id).count %> 
-  <% end %>
+  <!-- 部分的に更新 -->
+  <div id="likes_buttons_<%= post.id %>">
+    <%= render partial: 'likes/like', locals: { post: post} %>
+  </div>
+  
 </div>
