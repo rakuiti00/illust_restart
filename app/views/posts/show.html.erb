@@ -50,15 +50,19 @@
       </div>
     </div>
 
-    <!-- 部分的に更新 -->
-   <div id="likes_buttons_<%= @post.id %>">
-     <%= render partial: 'likes/like', locals: { post: @post} %>
-   </div>
-    <!-- ここまで -->
+    <div class="sns_menu">
+        <!-- 部分的に更新 -->
+        <div id="likes_buttons_<%= @post.id %>" class="like-div">
+          <%= render partial: 'likes/like', locals: { post: @post} %>
+        </div>
+        <!-- ここまで -->
 
-    <%= link_to("https://twitter.com/share?url=#{request.url}",title: 'Twitter', target: '_blank' ) do  %>  
-      <span class="fab fa-twitter twitter_btn"></span>
-    <% end  %>
+        <div class="twiiter_div">
+          <%= link_to("https://twitter.com/share?url=#{request.url}",title: 'Twitter', target: '_blank' ) do  %>  
+            <span class="fab fa-twitter twitter_btn"></span>
+          <% end  %>
+        </div>
+    </div>
 
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <div class="show__manage_box">
