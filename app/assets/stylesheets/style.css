@@ -680,12 +680,13 @@ textarea{
   }
 
   .items{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
   }
 
   .item{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -748,6 +749,8 @@ textarea{
   .alert-light{
     background:rgba(255,255,255,0.1);
   }
+
+
   
 
 
