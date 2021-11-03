@@ -9,7 +9,7 @@ class LikesController < ApplicationController
 
     @post = Post.find(params[:post_id])
 
-    return_select
+    # return_select
 
   end
 
@@ -22,7 +22,7 @@ class LikesController < ApplicationController
 
     @post = Post.find(params[:post_id])
 
-    return_select
+    # return_select
   end
 
   private
@@ -33,7 +33,7 @@ class LikesController < ApplicationController
     if path[:controller] == "posts" && path[:action] == "show"
       redirect_to(post_path(params[:post_id]))
     elsif path[:controller] == "posts" && path[:action] == "index"
-      redirect_to(root_path)
+      # redirect_to(root_path)
     elsif path[:controller] == "users" && path[:action] == "show"
       redirect_to(user_path(@post.user_id))
     elsif path[:controller] == "tranings" && path[:action] == "index"
@@ -41,7 +41,7 @@ class LikesController < ApplicationController
     elsif path[:controller] == "posts" && path[:action] == "search"
       redirect_to(search_posts_path)
     else
-      redirect_to(root_path)
+      # redirect_to(root_path)
     end    
   
   end
