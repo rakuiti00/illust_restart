@@ -109,18 +109,18 @@
 - 最高1000円以下で実際にアイコン作成やバナー作成などのイラストの依頼ができる機能  
 →1000円とはいえ、実際に依頼をこなすと実績と依頼をこなした自信がつく 
 
-- ajaxによる非同期通信のいいね機能
+- ajaxによる非同期通信のいいね機能（実装完了）
 
 - ajaxによる非同期通信のモーダルウィンドウ機能
 
-- ログアウト状態でもいいね機能を可能にする
+- ログアウト状態でもいいね機能を可能にしたい
 
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/e59bf468118ae3c0a23c04fc001284b3.png)](https://gyazo.com/e59bf468118ae3c0a23c04fc001284b3)
 
 
 ## 開発環境
-- フロントエンド：HTML5/CSS(Bootstrap)/JavaScript
+- フロントエンド：HTML5/CSS(Bootstrap)/JavaScript/JQuery/Ajax
 - バックエンド：Ruby on Rails(6.0.0)/Ruby(2.6.5)/JavaScript
 - テスト：RSpec
 - Linter：Rubocop
