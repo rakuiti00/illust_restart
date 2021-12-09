@@ -29,6 +29,9 @@ RSpec.describe "ユーザー新規登録", type: :system do
       #トップページへ遷移を確認
       expect(current_path).to eq(root_path)
 
+      #登録した名前が表示されていることを確認
+      expect(page).to have_content(@user.nickname)
+
       #ログアウトボタンが表示されていることを確認
       expect(page).to have_content('ログアウト')
 
@@ -39,25 +42,36 @@ RSpec.describe "ユーザー新規登録", type: :system do
 
   end
 
-  context 'ユーザー新規登録ができるとき' do
+  context 'ユーザー新規登録ができないとき' do
     it '謝った情報では新規登録ができず、新規登録ページに戻る' do
       #トップページに遷移
-      #visit root_path
+      visit root_path
 
       #トップページに新規登録へ遷移するリンクがあることを確認する
-      #expect(page).to have_content('新規登録')
+      expect(page).to have_content('新規登録')
 
       #新規登録ページへ移動
-      #visit new_user_registration_path
+      visit new_user_registration_path
 
       #ユーザ情報を入力
-
+      fill_in 'user_name', with: ''
+      fill_in 'user_email', with: ''
+      fill_in 'user_password', with: ''
+      fill_in 'user_password_confirmation', with: ''
 
       #登録ボタンを押下してもユーザモデルのカウントは上がらないことを確認
+      expect{
+        find('input.sign_up').click
+      }.to change {User.count}.by(0)
 
       #新規登録ページへ戻されることを確認
+      expect(current_path).to eq user_registration_path
 
+      #エラーメッセージの表示を確認
+      expect(page).to have_content('エラー')
     end
   end
+
+  
 
 end
