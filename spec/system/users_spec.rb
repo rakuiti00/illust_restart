@@ -71,7 +71,72 @@ RSpec.describe "ユーザー新規登録", type: :system do
       expect(page).to have_content('エラー')
     end
   end
+end
 
-  
+RSpec.describe "ログイン", type: :system do
+    before do
+      @user = FactoryBot.create(:user)
+    end
+
+    context 'ログインができるとき' do
+      it '保存されているユーザの情報と合致すればログインができる' do
+        #トップページに遷移する
+        visit root_path
+
+        #ログインのリンクが存在することを確認する
+        expect(page).to have_content('ログイン')
+        
+        #ログイン画面に遷移する
+        visit new_user_session_path
+
+        #ログイン情報を入力する
+        fill_in 'user_email', with: @user.email
+        fill_in 'user_password', with: @user.password
+
+        #ログインボタンを押下する
+        find('input[name="commit"]').click
+
+        #トップページに遷移する
+        expect(current_path).to eq(root_path)
+
+        #新規登録リンク・ログインリンク等がないことを確認する
+        expect(page).to have_no_content('新規登録')
+        expect(page).to have_no_content('ログイン')
+
+        #ログアウトリンクがあることを確認する
+        expect(page).to have_content('ログアウト')
+
+        #ログインユーザ名が表示されていることを確認する
+        expect(page).to have_content(@user.nickname)
+
+      end
+    end
+
+    context 'ログインができないとき' do
+      it '保存されているユーザの情報と合致しない場合、ログインできない' do
+        #トップページに遷移する
+        visit root_path
+
+        #ログインのリンクが存在することを確認する
+        expect(page).to have_content('ログイン')
+
+
+        #ログイン画面に遷移する
+        visit new_user_session_path
+
+        #DBに保存されていない情報を入力する(空文字)
+        fill_in 'user_email', with: ''
+        fill_in 'user_password', with: ''
+
+        #ログインボタンを押下する
+        find('input[name="commit"]').click
+
+        #ログイン画面に戻されることを確認する
+        expect(current_path).to eq(new_user_session_path)
+    
+      end
+    end
+
 
 end
+

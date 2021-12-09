@@ -23,7 +23,7 @@
         <%# 検索フォーム %>
         <%= form_with(url: search_posts_path, local: true, method: :get, class: "search_form ") do |form| %>
           <%= form.text_field :keyword, placeholder: "ユーザ・イラストを検索", class: "search_input" %>
-          <%= form.submit "検索", class: "search_btn btn btn-light" %>
+          <%= form.submit "検索", class: "search_btn btn btn-light" ,name: "commit2" %>
         <% end %>
 
         <nav>
